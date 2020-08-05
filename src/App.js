@@ -1,12 +1,15 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import Login from "pages/Login";
-import Registration from "pages/Registration";
+import { Switch, Route, Link, Redirect } from "react-router-dom";
+import Login from "routes/Login";
+import Registration from "routes/Registration";
 
 const App = () => {
   return (
     <div>
       <Switch>
+        <Route exact path="/">
+          <Redirect to="/login" />
+        </Route>
         <Route path="/login">
           <Login />
         </Route>
