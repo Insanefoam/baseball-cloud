@@ -3,15 +3,18 @@ import Header from "components/Header";
 import Footer from "components/Footer";
 import SignInForm from "components/SignInForm";
 import "./Login.css";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   return (
     <div className="container">
-      <Header></Header>
+      <NavLink to="/">
+        <Header />
+      </NavLink>
       <section className="main">
-        <SignInForm></SignInForm>
+        <SignInForm />
       </section>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };

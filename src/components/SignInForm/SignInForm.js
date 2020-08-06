@@ -33,9 +33,8 @@ const SignInForm = () => {
         <div className="signin__title small">Sign into your account here:</div>
       </div>
       <Form onSubmit={submitHandler}>
-        {({ submitErrors, handleSubmit }) => (
+        {({ submitErrors, handleSubmit, submitting }) => (
           <div className="form">
-            {console.log(submitErrors)}
             <div className="form__input">
               <Field
                 name="email"
@@ -59,7 +58,12 @@ const SignInForm = () => {
                 Invalid login credentials. Please try again.
               </div>
             )}
-            <button onClick={handleSubmit} className="signin__button">
+            <button
+              onClick={handleSubmit}
+              className={
+                submitting ? "signin__button submitting" : "signin__button"
+              }
+            >
               Sign In
             </button>
           </div>
