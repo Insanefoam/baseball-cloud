@@ -1,0 +1,129 @@
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  background: hsla(0, 0%, 100%, 0.8);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  max-width: 450px;
+}
+
+.switch {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.switch__button {
+  flex: 1;
+  background-color: #35c32a;
+  color: #fff;
+  border: solid 1px #35c32a;
+  outline: none;
+  font-size: 16px;
+  padding: 15px 5px 15px 1px;
+  cursor: pointer;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.inactive {
+  background-color: #fff;
+  color: #35c32a;
+}
+
+.tab {
+  background: #48bbff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.tab__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 21px;
+  text-align: center;
+}
+
+.tab__content {
+  font-size: 13px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.signup__title {
+  color: #667784;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.signup__title .big {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.signup__title .small {
+  font-size: 16px;
+}
+
+.form {
+  width: 100%;
+}
+
+.form__input {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.signup__button {
+  width: 100%;
+  padding: 15px;
+  color: #fff;
+  font-weight: 400;
+  border: solid 1px transparent;
+  box-shadow: 0 0 4px 0 rgba(72, 187, 255, 0);
+  background-color: #48bbff;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+.signup__button:hover {
+  box-shadow: 0 0 4px 0 rgba(72, 187, 255, 0.8);
+}
+
+.signup__forgot {
+  width: 100%;
+  text-align: right;
+  margin-bottom: 15px;
+}
+
+.signup__signup {
+  color: #667784;
+}
+
+.signup__signup a {
+  color: #48bbff;
+  text-decoration: underline;
+}
+
+.sigup__error {
+  color: #ef6669;
+  margin-bottom: 2px;
+}
+
+.submitting {
+  background-color: #337ab7;
+}
+
+.signup__agree {
+  margin: 8px 0;
+  padding: 0 10px;
+}

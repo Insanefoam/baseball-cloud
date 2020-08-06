@@ -1,13 +1,9 @@
 import React from "react";
-import Header from "components/Header";
+import SignUpForm from "components/SignUpForm";
+import AuthContainer from "components/AuthContainer";
 
 const Registration = () => {
-  return (
-    <div>
-      <Header></Header>
-      <div>Registration page</div>
-    </div>
-  );
+  return <AuthContainer centralForm={SignUpForm}></AuthContainer>;
 };
 
 export default Registration;
