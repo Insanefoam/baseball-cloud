@@ -4,9 +4,17 @@ import InputAuth from "components/InputAuth";
 import "./SignInForm.css";
 import { NavLink } from "react-router-dom";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import { signIn } from "api";
+import { useDispatch } from "react-redux";
+import { initUser } from "store/actions";
 
 const SignInForm = () => {
+  const dispatch = useDispatch();
+
   const submitHandler = ({ email, password }, form) => {
+    signIn(email, password).then((res) => {
+      dispatch(initUser(email, password, res.headers["access-token"]));
+    });
     setTimeout(form.reset);
   };
 

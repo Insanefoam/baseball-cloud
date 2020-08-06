@@ -12,6 +12,8 @@ const InputAuth = ({ input, placeholder, icon }) => {
         {...input}
         placeholder={placeholder}
         className="input__field"
+        onFocus={(e) => (e.target.placeholder = "")}
+        onBlur={(e) => (e.target.placeholder = placeholder)}
       ></input>
     </div>
   );
