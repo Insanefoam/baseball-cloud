@@ -7,15 +7,23 @@ import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import { signIn } from "api";
 import { useDispatch } from "react-redux";
 import { initUser } from "store/actions";
+import { useHistory } from "react-router-dom";
 
 const SignInForm = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const submitHandler = ({ email, password }, form) => {
-    signIn(email, password).then((res) => {
-      dispatch(initUser(email, password, res.headers["access-token"]));
-    });
-    setTimeout(form.reset);
+    return signIn(email, password)
+      .then((res) => {
+        dispatch(initUser(email, password, res.headers["access-token"]));
+        setTimeout(form.reset);
+        history.push("/profile");
+        return undefined;
+      })
+      .catch((err) => {
+        return { email: "error", password: "error" };
+      });
   };
 
   return (
@@ -25,8 +33,9 @@ const SignInForm = () => {
         <div className="signin__title small">Sign into your account here:</div>
       </div>
       <Form onSubmit={submitHandler}>
-        {({ handleSubmit }) => (
+        {({ submitErrors, handleSubmit }) => (
           <div className="form">
+            {console.log(submitErrors)}
             <div className="form__input">
               <Field
                 name="email"
@@ -45,6 +54,11 @@ const SignInForm = () => {
                 icon={faLock}
               ></Field>
             </div>
+            {submitErrors && (
+              <div className="sigin__error">
+                Invalid login credentials. Please try again.
+              </div>
+            )}
             <button onClick={handleSubmit} className="signin__button">
               Sign In
             </button>

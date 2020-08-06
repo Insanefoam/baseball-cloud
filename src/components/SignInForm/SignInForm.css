@@ -68,3 +68,8 @@
   color: #48bbff;
   text-decoration: underline;
 }
+
+.sigin__error {
+  color: #ef6669;
+  margin-bottom: 2px;
+}
