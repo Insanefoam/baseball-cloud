@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "routes/Login";
 import Registration from "routes/Registration";
+import ForgotPassword from "routes/ForgotPassword";
 
 const App = () => {
   return (
@@ -14,6 +15,9 @@ const App = () => {
       </Route>
       <Route path="/registration">
         <Registration />
+      </Route>
+      <Route path="/forgotpassword">
+        <ForgotPassword />
       </Route>
     </Switch>
   );

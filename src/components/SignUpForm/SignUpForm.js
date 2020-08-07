@@ -186,9 +186,6 @@ const SignUpForm = () => {
           </div>
         )}
       </Form>
-      <div className="signup__forgot">
-        <NavLink to="/forgotpassword">Forgotten password?</NavLink>
-      </div>
       <div className="signup__signup">
         Already registered? <NavLink to="/login">Sign In</NavLink>
       </div>
