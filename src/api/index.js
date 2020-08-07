@@ -6,8 +6,5 @@ export const signIn = (email, password) =>
     .then((res) => res)
     .catch((err) => err);
 
-export const signUp = (email, password, passwordConfirmation) =>
-  api
-    .post("/auth/", { email, password, passwordConfirmation })
-    .then((res) => res)
-    .catch((err) => err);
+export const signUp = (email, password, password_confirmation, role) =>
+  api.post("/auth", { email, password, password_confirmation, role });

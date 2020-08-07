@@ -3,11 +3,17 @@ import { Form, Field } from "react-final-form";
 import InputAuth from "components/InputAuth";
 import "./SignUpForm.css";
 import { NavLink } from "react-router-dom";
-import { faUser, faLock, faCheck } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUser,
+  faLock,
+  faCheck,
+  faCheckSquare,
+} from "@fortawesome/free-solid-svg-icons";
 import { signUp } from "api";
 import { useDispatch } from "react-redux";
 import { initUser } from "store/actions";
 import { useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const playerTab = (
   <div className="tab">
@@ -29,20 +35,47 @@ const scoutTab = (
   </div>
 );
 
+const validate = (email, password, passwordConfirmation) => {
+  if (password && password.length < 8) {
+    return { password: "Must contain more than 8 characters" };
+  }
+
+  if (password !== passwordConfirmation) {
+    return { passwordConfirmation: "Passwords are not equal" };
+  }
+
+  return email
+    ? password
+      ? undefined
+      : { password: "Required" }
+    : password
+    ? { email: "Required" }
+    : { email: "Required", password: "Required" };
+};
+
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const submitHandler = ({ email, password, passwordConfirmation }, form) => {
-    return signUp(email, password, passwordConfirmation)
+  const submitHandler = (
+    { email, password, passwordConfirmation, role },
+    form
+  ) => {
+    const errors = validate(email, password, passwordConfirmation);
+    if (errors) {
+      return errors;
+    }
+
+    return signUp(email, password, passwordConfirmation, role)
       .then((res) => {
+        console.log(res);
         dispatch(initUser(email, password, res.headers["access-token"]));
         setTimeout(form.reset);
         history.push("/profile");
         return undefined;
       })
       .catch((err) => {
-        return { email: "error", password: "error" };
+        return { signup: "Email has already been taken" };
       });
   };
 
@@ -51,7 +84,7 @@ const SignUpForm = () => {
       <Form onSubmit={submitHandler}>
         {({ submitErrors, handleSubmit, submitting }) => (
           <div className="form">
-            <Field name="usertype" defaultValue="player">
+            <Field name="role" defaultValue="player">
               {({ input }) => (
                 <div className="signup__switcher">
                   <div className="switch">
@@ -63,6 +96,14 @@ const SignUpForm = () => {
                           : "switch__button inactive"
                       }
                     >
+                      <FontAwesomeIcon
+                        icon={faCheckSquare}
+                        className={
+                          input.value === "player"
+                            ? "switch__icon"
+                            : "switch__icon-inactive"
+                        }
+                      />
                       Sign Up as Player
                     </button>
                     <button
@@ -73,6 +114,14 @@ const SignUpForm = () => {
                           : "switch__button inactive"
                       }
                     >
+                      <FontAwesomeIcon
+                        icon={faCheckSquare}
+                        className={
+                          input.value === "scout"
+                            ? "switch__icon"
+                            : "switch__icon-inactive"
+                        }
+                      />
                       Sign Up as Scout
                     </button>
                   </div>
@@ -88,6 +137,9 @@ const SignUpForm = () => {
                 type="email"
                 icon={faUser}
               ></Field>
+              {submitErrors && (
+                <div className="signup__error">{submitErrors.email}</div>
+              )}
             </div>
             <div className="form__input">
               <Field
@@ -97,6 +149,9 @@ const SignUpForm = () => {
                 type="password"
                 icon={faLock}
               ></Field>
+              {submitErrors && (
+                <div className="signup__error">{submitErrors.password}</div>
+              )}
             </div>
             <div className="form__input">
               <Field
@@ -106,11 +161,14 @@ const SignUpForm = () => {
                 type="password"
                 icon={faCheck}
               ></Field>
+              {submitErrors && (
+                <div className="signup__error">
+                  {submitErrors.passwordConfirmation}
+                </div>
+              )}
             </div>
             {submitErrors && (
-              <div className="signup__error">
-                Invalid login credentials. Please try again.
-              </div>
+              <div className="signup__error">{submitErrors.signup}</div>
             )}
             <div className="signup__agree">
               By clicking Sign Up, you agree to our{" "}
