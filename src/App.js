@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "routes/Login";
 import Registration from "routes/Registration";
 import ForgotPassword from "routes/ForgotPassword";
+import Profile from "routes/Profile";
 
 const App = () => {
   return (
@@ -18,6 +19,9 @@ const App = () => {
       </Route>
       <Route path="/forgotpassword">
         <ForgotPassword />
+      </Route>
+      <Route path="/profile">
+        <Profile />
       </Route>
     </Switch>
   );
