@@ -1,0 +1,29 @@
+.upload-avatar__container {
+  display: flex;
+  justify-content: center;
+}
+
+.upload-avatar__avatar {
+  width: 100px;
+  height: 100px;
+  background-image: url("../../images/profile100.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  margin-bottom: 16px;
+}
+
+.upload-avatar__input {
+  display: none;
+}
+
+.upload-avatar__label {
+  color: #788b99;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.upload-avatar__label:hover {
+  color: #48bbff;
+  text-decoration: underline;
+}
