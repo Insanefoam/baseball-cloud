@@ -13,7 +13,9 @@ const Profile = () => {
       <Header navigation={Navigation} />
       <section className="profile">
         <aside className="profile__aside">
-          <UploadAvatarForm></UploadAvatarForm>
+          <div className="profile__aside-avatar">
+            <UploadAvatarForm />
+          </div>
           <ProfileInfoForm></ProfileInfoForm>
         </aside>
         <main className="profile__main">

@@ -32,3 +32,7 @@
   font-size: 16px;
   color: #667784;
 }
+
+.profile__aside-avatar {
+  margin-bottom: 25px;
+}

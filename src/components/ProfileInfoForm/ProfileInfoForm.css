@@ -1,0 +1,18 @@
+.info-form__double {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 50px;
+}
+
+.info-form__field {
+  display: flex;
+}
+
+.info-form__field-sub {
+  display: flex;
+  flex: 1;
+}
+
+.info-form__field-sub:last-child {
+  margin-left: 10px;
+}

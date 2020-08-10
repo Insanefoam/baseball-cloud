@@ -1,0 +1,11 @@
+.pr-input {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 4px;
+  background-color: #eff1f3;
+  font-size: 16px;
+  color: #667784;
+  border: 1px solid transparent;
+  outline: none;
+  width: 100%;
+}
