@@ -12,7 +12,7 @@ const UploadAvatarForm = () => {
           <input type="file" id="avatar"></input>
         </div>
         <div className="upload-avatar__label">
-          <label for="avatar">Choose Photo</label>
+          <label htmlFor="avatar">Choose Photo</label>
         </div>
       </div>
     </div>

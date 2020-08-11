@@ -6,6 +6,7 @@
 
 .info-form__field {
   display: flex;
+  margin-bottom: 8px;
 }
 
 .info-form__field-sub {

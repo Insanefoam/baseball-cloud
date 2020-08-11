@@ -2,6 +2,17 @@ import React from "react";
 import { Form, Field } from "react-final-form";
 import InputProfile from "components/InputProfile";
 import "./ProfileInfoForm.css";
+import SelectorProfile from "components/SelectorProfile";
+
+const positions = [
+  { value: "catcher", label: "Catcher" },
+  { value: "firstBase", label: "First Base" },
+  { value: "secondBase", label: "Second Base" },
+  { value: "shortstop", label: "Shortstop" },
+  { value: "thirdBase", label: "Third Base" },
+  { value: "outfield", label: "Outfield" },
+  { value: "pitcher", label: "Pitcher" },
+];
 
 const ProfileInfoForm = () => {
   const submitHadler = (values) => alert(values);
@@ -27,6 +38,14 @@ const ProfileInfoForm = () => {
             </div>
           </div>
           <div className="info-form__field"></div>
+          <div className="info-form__field">
+            <Field
+              name="position"
+              component={SelectorProfile}
+              placeholder="Position in Game"
+              options={positions}
+            />
+          </div>
         </div>
       )}
     </Form>
