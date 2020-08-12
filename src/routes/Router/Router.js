@@ -5,6 +5,7 @@ import Registration from "routes/Registration";
 import ForgotPassword from "routes/ForgotPassword";
 import Profile from "routes/Profile";
 import { useSelector } from "react-redux";
+import Leaderboard from "routes/Leaderboard";
 
 const Router = () => {
   const userInfo = useSelector((state) => state.auth);
@@ -26,6 +27,9 @@ const Router = () => {
         </Route>
         <Route path="/profile">
           <Profile />
+        </Route>
+        <Route path="/leaderboard">
+          <Leaderboard />
         </Route>
       </Switch>
     );
