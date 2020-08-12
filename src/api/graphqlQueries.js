@@ -11,11 +11,24 @@ export const getSchoolsQuery = () => ({
 });
 
 export const getTeamsQuery = () => ({
-  query: `query getSchools ($search: String!) {
-    schools(search: $search) {
-        schools {
+  query: `query getTeams ($search: String!) {
+    teams(search: $search) {
+        teams {
             id
             name
+        }
+    }
+  }`,
+  variables: { search: "" },
+});
+
+export const getFacilitiesQuery = () => ({
+  query: `query getFacilities ($search: String!) {
+    facilities(search: $search) {
+        facilities {
+            id
+            email
+            u_name
         }
     }
   }`,

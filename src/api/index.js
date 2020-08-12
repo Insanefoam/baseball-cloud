@@ -1,5 +1,9 @@
 import api from "services";
-import { getSchoolsQuery, getTeamsQuery } from "./graphqlQueries";
+import {
+  getSchoolsQuery,
+  getTeamsQuery,
+  getFacilitiesQuery,
+} from "./graphqlQueries";
 
 export const signIn = (email, password) =>
   api
@@ -13,3 +17,5 @@ export const signUp = (email, password, password_confirmation, role) =>
 export const getSchools = () => api.post("/graphql", getSchoolsQuery());
 
 export const getTeams = () => api.post("/graphql", getTeamsQuery());
+
+export const getFacilities = () => api.post("/graphql", getFacilitiesQuery());

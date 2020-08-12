@@ -3,7 +3,7 @@ import { Form, Field } from "react-final-form";
 import InputProfile from "components/InputProfile";
 import "./ProfileInfoForm.css";
 import SelectorProfile from "components/SelectorProfile";
-import { getSchools } from "api";
+import { getSchools, getTeams, getFacilities } from "api";
 
 const positions = [
   { value: "catcher", label: "Catcher" },
@@ -32,9 +32,14 @@ const ProfileInfoForm = () => {
   const submitHadler = (values) => alert(values);
   const [schools, setSchools] = useState([]);
   const [teams, setTeams] = useState([]);
+  const [facilities, setFacilities] = useState([]);
 
   useEffect(() => {
     getSchools().then((res) => setSchools(res.data.data.schools.schools));
+    getTeams().then((res) => setTeams(res.data.data.teams.teams));
+    getFacilities().then((res) =>
+      setFacilities(res.data.data.facilities.facilities)
+    );
   }, []);
 
   return (
@@ -149,7 +154,27 @@ const ProfileInfoForm = () => {
               name="team"
               component={SelectorProfile}
               placeholder="Team"
-              options={schoolYears}
+              options={teams.map((team) => ({
+                value: team.id,
+                label: team.name,
+              }))}
+            />
+          </div>
+          <div className="info-title">
+            <span className="info-title__text">Facility</span>
+            <span className="info-title__line">
+              <hr></hr>
+            </span>
+          </div>
+          <div className="info-form__field">
+            <Field
+              name="facility"
+              component={SelectorProfile}
+              placeholder="Facility"
+              options={facilities.map((faculty) => ({
+                value: faculty.id,
+                label: faculty.u_name,
+              }))}
             />
           </div>
         </div>
