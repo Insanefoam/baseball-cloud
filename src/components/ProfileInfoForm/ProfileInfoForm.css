@@ -42,3 +42,41 @@
   background-color: #e7ebef;
   border-width: 0;
 }
+
+.info-form__button {
+  margin-top: 10px;
+  border: solid 1px transparent;
+  border-radius: 4px;
+  font-size: 16px;
+  flex: 1;
+  padding: 10px 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.info-form__button:last-child {
+  margin-left: 10px;
+}
+
+.blue {
+  background-color: #48bbff;
+  color: #ffffff;
+}
+
+.blue:hover {
+  box-shadow: 0 0 4px 0 rgba(72, 187, 255, 0.8);
+  border: solid 1px transparent;
+  background-color: #48bbff;
+}
+
+.white {
+  border: solid 1px #d1d7db;
+  background-color: #ffffff;
+  box-shadow: 0 2px 25px 0 rgba(0, 0, 0, 0);
+}
+
+.white:hover {
+  color: #48bbff;
+  box-shadow: 0 0 4px 0 rgba(72, 187, 255, 0.8);
+  border: solid 1px #48bbff;
+}

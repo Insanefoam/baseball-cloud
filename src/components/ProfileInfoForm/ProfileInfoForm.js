@@ -177,6 +177,10 @@ const ProfileInfoForm = () => {
               }))}
             />
           </div>
+          <div className="info-form__field">
+            <button className="info-form__button white">Cancel</button>
+            <button className="info-form__button blue">Save</button>
+          </div>
         </div>
       )}
     </Form>

@@ -1,30 +1,8 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import Login from "routes/Login";
-import Registration from "routes/Registration";
-import ForgotPassword from "routes/ForgotPassword";
-import Profile from "routes/Profile";
+import Router from "routes/Router";
 
 const App = () => {
-  return (
-    <Switch>
-      <Route exact path="/">
-        <Redirect to="/login" />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/registration">
-        <Registration />
-      </Route>
-      <Route path="/forgotpassword">
-        <ForgotPassword />
-      </Route>
-      <Route path="/profile">
-        <Profile />
-      </Route>
-    </Switch>
-  );
+  return <Router></Router>;
 };
 
 export default App;

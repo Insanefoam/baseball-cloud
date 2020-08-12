@@ -11,7 +11,7 @@ const auth = (state = {}, { type, payload }) => {
       };
     }
     case LOGOUT_USER:
-      return { uid: "", client: "", token: "" };
+      return {};
     default:
       return state;
   }

@@ -14,6 +14,10 @@ export const signIn = (email, password) =>
 export const signUp = (email, password, password_confirmation, role) =>
   api.post("/auth", { email, password, password_confirmation, role });
 
+export const validateToken = () => {};
+
+export const signOut = () => {};
+
 export const getSchools = () => api.post("/graphql", getSchoolsQuery());
 
 export const getTeams = () => api.post("/graphql", getTeamsQuery());
