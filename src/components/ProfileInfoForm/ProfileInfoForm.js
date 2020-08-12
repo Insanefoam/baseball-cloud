@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Field } from "react-final-form";
 import InputProfile from "components/InputProfile";
 import "./ProfileInfoForm.css";
 import SelectorProfile from "components/SelectorProfile";
+import { getSchools } from "api";
 
 const positions = [
   { value: "catcher", label: "Catcher" },
@@ -19,8 +20,22 @@ const hands = [
   { value: "l", label: "L" },
 ];
 
+const schoolYears = [
+  { value: "freshman", label: "Freshman" },
+  { value: "sophomore", label: "Sophomore" },
+  { value: "junior", label: "Junior" },
+  { value: "senior", label: "Senior" },
+  { value: "none", label: "None" },
+];
+
 const ProfileInfoForm = () => {
   const submitHadler = (values) => alert(values);
+  const [schools, setSchools] = useState([]);
+  const [teams, setTeams] = useState([]);
+
+  useEffect(() => {
+    getSchools().then((res) => setSchools(res.data.data.schools.schools));
+  }, []);
 
   return (
     <Form onSubmit={submitHadler}>
@@ -89,7 +104,7 @@ const ProfileInfoForm = () => {
           <div className="info-form__field">
             <div className="info-form__field-sub">
               <Field
-                name="secondPosition"
+                name="throws"
                 component={SelectorProfile}
                 placeholder="Throws"
                 options={hands}
@@ -97,7 +112,7 @@ const ProfileInfoForm = () => {
             </div>
             <div className="info-form__field-sub">
               <Field
-                name="secondPosition"
+                name="bats"
                 component={SelectorProfile}
                 placeholder="Bats"
                 options={hands}
@@ -115,7 +130,26 @@ const ProfileInfoForm = () => {
               name="school"
               component={SelectorProfile}
               placeholder="School"
-              options={[]}
+              options={schools.map((school) => ({
+                value: school.id,
+                label: school.name,
+              }))}
+            />
+          </div>
+          <div className="info-form__field">
+            <Field
+              name="schoolYear"
+              component={SelectorProfile}
+              placeholder="School Year"
+              options={schoolYears}
+            />
+          </div>
+          <div className="info-form__field">
+            <Field
+              name="team"
+              component={SelectorProfile}
+              placeholder="Team"
+              options={schoolYears}
             />
           </div>
         </div>
