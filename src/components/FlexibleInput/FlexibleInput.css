@@ -1,0 +1,23 @@
+.flexible-input {
+  display: flex;
+  align-items: center;
+}
+
+.flexible-input input {
+  border: none;
+  width: 60px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b7984;
+  transition: width 0.5s;
+}
+
+.flexible-input input::placeholder {
+  color: #53bfff;
+}
+
+.flexible-input input:focus {
+  width: 150px;
+  border-bottom: 1px solid #53bfff;
+}

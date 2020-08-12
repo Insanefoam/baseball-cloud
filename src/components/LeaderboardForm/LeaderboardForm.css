@@ -1,0 +1,22 @@
+.leaderboard__title {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.leaderboard__title span {
+  font-size: 24px;
+  color: #667784;
+}
+
+.leaderboard__filters {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.leaderboard__filter {
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+}
