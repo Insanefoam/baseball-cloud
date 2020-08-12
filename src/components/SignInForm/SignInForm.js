@@ -16,7 +16,13 @@ const SignInForm = () => {
   const submitHandler = ({ email, password }, form) => {
     return signIn(email, password)
       .then((res) => {
-        dispatch(initUser(email, password, res.headers["access-token"]));
+        dispatch(
+          initUser(
+            res.headers["uid"],
+            res.headers["client"],
+            res.headers["access-token"]
+          )
+        );
         setTimeout(form.reset);
         history.push("/profile");
         return undefined;

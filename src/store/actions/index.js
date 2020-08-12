@@ -1,7 +1,7 @@
 import { INIT_USER, LOGOUT_USER } from "store/constants";
 
-export const initUser = (email, password, token) => {
-  return { type: INIT_USER, payload: { email, password, token } };
+export const initUser = (uid, client, token) => {
+  return { type: INIT_USER, payload: { uid, client, token } };
 };
 
 export const logoutUser = () => {

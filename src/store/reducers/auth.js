@@ -5,13 +5,13 @@ const auth = (state = {}, { type, payload }) => {
     case INIT_USER: {
       return {
         ...state,
-        email: payload.email,
-        password: payload.password,
+        uid: payload.uid,
+        client: payload.client,
         token: payload.token,
       };
     }
     case LOGOUT_USER:
-      return { email: "", password: "", token: "" };
+      return { uid: "", client: "", token: "" };
     default:
       return state;
   }

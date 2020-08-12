@@ -17,3 +17,28 @@
 .info-form__field-sub:last-child {
   margin-left: 10px;
 }
+
+.info-title {
+  display: flex;
+  margin: 15px 0;
+}
+
+.info-title__line {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-title__text {
+  font-size: 18px;
+  font-weight: 900;
+  color: #414f5a;
+  padding-right: 10px;
+}
+
+.info-title__line hr {
+  height: 1px;
+  background-color: #e7ebef;
+  border-width: 0;
+}
