@@ -5,8 +5,8 @@ import BlueArrow from "images/BlueArrow/BlueArrow";
 const FlexibleInput = ({ input, placeholder }) => {
   return (
     <span className="flexible-input">
-      <input {...input} placeholder={placeholder} id="input"></input>
-      <label htmlFor="input">
+      <label className="flexible-input__label">
+        <input {...input} placeholder={placeholder}></input>
         <BlueArrow></BlueArrow>
       </label>
     </span>

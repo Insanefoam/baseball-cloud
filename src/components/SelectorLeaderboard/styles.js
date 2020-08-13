@@ -22,11 +22,14 @@ export default {
     display: "none",
   }),
   option: (provided) => ({
-    ...provided,
     fontSize: "16px",
     fontWeight: "400",
     color: "#788B99",
-    paddingLeft: "10px",
+    padding: "10px",
+    "&:hover": {
+      backgroundColor: "#ECF8FF",
+    },
+    cursor: "pointer",
   }),
   placeholder: (provided) => ({
     color: "#48bbff",
