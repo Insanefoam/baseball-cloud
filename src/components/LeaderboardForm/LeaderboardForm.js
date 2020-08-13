@@ -12,6 +12,7 @@ const dates = [
 ];
 
 const positions = [
+  { value: "", label: "All" },
   { value: "catcher", label: "Catcher" },
   { value: "first_base", label: "First Base" },
   { value: "second_base", label: "Second Base" },
@@ -130,7 +131,6 @@ const LeaderboardForm = () => {
               </Field>
               <div className="leaderboard__filters">
                 <div className="leaderboard__filter">
-                  {console.log(form.getState().values)}
                   <Field
                     name="type"
                     component={SelectorLeaderboard}
