@@ -13,7 +13,6 @@ export default {
     border: "none",
   }),
   singleValue: (provided) => ({
-    ...provided,
     fontSize: "16px",
     fontWeight: "400",
     color: "#48bbff",

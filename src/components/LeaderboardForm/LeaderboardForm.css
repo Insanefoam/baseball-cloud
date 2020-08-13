@@ -2,6 +2,13 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.leaderboard__title-top {
+  display: flex;
+  align-items: space-between;
 }
 
 .leaderboard__title span {
@@ -13,10 +20,36 @@
   display: flex;
   flex: 1;
   justify-content: flex-end;
+  margin-bottom: 20px;
 }
 
 .leaderboard__filter {
   display: flex;
   justify-content: center;
   margin-right: 10px;
+}
+
+.leaderboard__title-down {
+  display: flex;
+}
+
+.leaderboard__button {
+  padding: 8px;
+  margin-right: 10px;
+  border: 2px solid #788b99;
+  border-radius: 40px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: #788b99;
+  background-color: #fff;
+}
+
+.leaderboard__button:hover {
+  background: rgba(120, 139, 153, 0.4);
+}
+
+.selected {
+  background: #788b99;
+  color: #fff;
 }

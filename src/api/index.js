@@ -3,6 +3,8 @@ import {
   getSchoolsQuery,
   getTeamsQuery,
   getFacilitiesQuery,
+  getBattingLeaderboardQuery,
+  getPitchingLeaderboardQuery,
 } from "./graphqlQueries";
 
 export const signIn = (email, password) =>
@@ -23,3 +25,9 @@ export const getSchools = () => api.post("/graphql", getSchoolsQuery());
 export const getTeams = () => api.post("/graphql", getTeamsQuery());
 
 export const getFacilities = () => api.post("/graphql", getFacilitiesQuery());
+
+export const getBattingLeaderboard = (config) =>
+  api.post("/graphql", getBattingLeaderboardQuery(config));
+
+export const getPithcingLeaderboard = (config) =>
+  api.post("/graphql", getPitchingLeaderboardQuery(config));
