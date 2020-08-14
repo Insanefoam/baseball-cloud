@@ -6,6 +6,7 @@ import ForgotPassword from "routes/ForgotPassword";
 import Profile from "routes/Profile";
 import { useSelector } from "react-redux";
 import Leaderboard from "routes/Leaderboard";
+import Network from "routes/Network";
 
 const Router = () => {
   const userInfo = useSelector((state) => state.auth);
@@ -30,6 +31,9 @@ const Router = () => {
         </Route>
         <Route path="/leaderboard">
           <Leaderboard />
+        </Route>
+        <Route path="/network">
+          <Network />
         </Route>
       </Switch>
     );
