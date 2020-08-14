@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./NetworkTable.css";
 import { updateFavorite, getProfiles } from "api";
 import { NavLink } from "react-router-dom";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
@@ -8,11 +7,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const head = ["Player Name", "Sessions", "School", "Teams", "Age", "Favorite"];
 
-const NetworkTable = ({ config }) => {
+const NetworkTable = ({ config, changeCount }) => {
   const [data, setData] = useState([]);
   const [isFetching, setFetching] = useState(false);
 
-  const makeFavorite = (id, value) => {
+  const makeFavoriteProfile = (id, value) => {
     updateFavorite(id, value).then((res) =>
       setData(
         data.map((row) =>
@@ -50,13 +49,13 @@ const NetworkTable = ({ config }) => {
             <FontAwesomeIcon
               icon={solidHeart}
               color="#48BBFF"
-              onClick={() => makeFavorite(el.batter_datraks_id, !el.favorite)}
+              onClick={() => makeFavoriteProfile(el.id, !el.favorite)}
             />
           ) : (
             <FontAwesomeIcon
               icon={regularHeart}
               color="#48BBFF"
-              onClick={() => makeFavorite(el.batter_datraks_id, !el.favorite)}
+              onClick={() => makeFavoriteProfile(el.id, !el.favorite)}
             />
           )}
         </td>
@@ -65,10 +64,11 @@ const NetworkTable = ({ config }) => {
   };
 
   useEffect(() => {
-    getProfiles(config.profiles_count, config.offset).then((res) =>
-      setData(res.data.data.profiles.profiles)
-    );
-  }, [config]);
+    getProfiles(config.profiles_count, config.offset).then((res) => {
+      changeCount(res.data.data.profiles.total_count);
+      setData(res.data.data.profiles.profiles);
+    });
+  }, [changeCount, config]);
 
   return (
     <div>

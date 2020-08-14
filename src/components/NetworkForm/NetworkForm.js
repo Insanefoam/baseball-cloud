@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NetworkForm.css";
 import { Form, Field } from "react-final-form";
 import SelectorLeaderboard from "components/SelectorLeaderboard";
@@ -28,6 +28,8 @@ const favs = [
 ];
 
 const NetworkForm = () => {
+  const [profilesCount, setProfilesCount] = useState(0);
+
   return (
     <Form
       onSubmit={() => alert("submit")}
@@ -35,25 +37,25 @@ const NetworkForm = () => {
     >
       {({ handleSubmit, form }) => (
         <div className="leadeboard__container">
-          <div className="leaderboard__title">
-            <div className="leaderboard__title-top">
+          <div className="network__title">
+            <div className="network__title-top">
               <span>Network</span>
-              <div className="leaderboard__filters">
-                <div className="leaderboard__filter">
+              <div className="network__filters">
+                <div className="network__filter">
                   <Field
                     name="school"
                     component={FlexibleInput}
                     placeholder="School"
                   ></Field>
                 </div>
-                <div className="leaderboard__filter">
+                <div className="network__filter">
                   <Field
                     name="team"
                     component={FlexibleInput}
                     placeholder="Team"
                   ></Field>
                 </div>
-                <div className="leaderboard__filter">
+                <div className="network__filter">
                   <Field
                     name="position"
                     component={SelectorLeaderboard}
@@ -61,14 +63,14 @@ const NetworkForm = () => {
                     placeholder="Position"
                   ></Field>
                 </div>
-                <div className="leaderboard__filter">
+                <div className="network__filter">
                   <Field
                     name="age"
                     component={FlexibleInput}
                     placeholder="Age"
                   ></Field>
                 </div>
-                <div className="leaderboard__filter">
+                <div className="network__filter">
                   <Field
                     name="favorite"
                     component={SelectorLeaderboard}
@@ -76,7 +78,7 @@ const NetworkForm = () => {
                     placeholder="All"
                   ></Field>
                 </div>
-                <div className="leaderboard__filter">
+                <div className="network__filter">
                   <Field
                     name="profiles_count"
                     component={SelectorLeaderboard}
@@ -86,10 +88,10 @@ const NetworkForm = () => {
                 </div>
               </div>
             </div>
-            <div className="leaderboard__title-down">
-              <div>Availible Players</div>
-              <div className="leaderboard__filters">
-                <div className="leaderboard__filter">
+            <div className="network__title-down">
+              <div className="network__title-down left">{`Availible Player (${profilesCount})`}</div>
+              <div className="network__filters">
+                <div className="network__filter">
                   <Field
                     name="player_name"
                     component={FlexibleInput}
@@ -99,7 +101,10 @@ const NetworkForm = () => {
               </div>
             </div>
           </div>
-          <NetworkTable config={form.getState().values}></NetworkTable>
+          <NetworkTable
+            config={form.getState().values}
+            changeCount={setProfilesCount}
+          ></NetworkTable>
         </div>
       )}
     </Form>
