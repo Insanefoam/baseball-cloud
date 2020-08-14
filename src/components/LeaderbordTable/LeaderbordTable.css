@@ -1,0 +1,28 @@
+thead tr th {
+  font-size: 14px;
+  font-weight: 300;
+  color: #667784;
+}
+
+tbody tr {
+  background-color: #f7f8f9;
+}
+
+tbody tr:hover {
+  background-color: #ecf8ff;
+}
+
+td,
+th {
+  font-size: 16px;
+  font-weight: 400;
+  color: #414f5a;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: #48bbff;
+}

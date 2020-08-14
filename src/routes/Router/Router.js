@@ -14,7 +14,7 @@ const Router = () => {
     return (
       <Switch>
         <Route exact path="/">
-          <Redirect to="/profile" />
+          <Leaderboard />
         </Route>
         <Route path="/login">
           <Redirect to="/profile" />

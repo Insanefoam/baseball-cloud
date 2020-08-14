@@ -7,8 +7,8 @@ import LeaderbordTable from "components/LeaderbordTable";
 
 const dates = [
   { value: "all", label: "All" },
-  { value: "lastWeek", label: "Last Week" },
-  { value: "lastMonth", label: "Last Month" },
+  { value: "last_week", label: "Last Week" },
+  { value: "last_month", label: "Last Month" },
 ];
 
 const positions = [
@@ -23,7 +23,7 @@ const positions = [
 ];
 
 const favs = [
-  { value: 0, label: "All" },
+  { value: "", label: "All" },
   { value: 1, label: "Favorite" },
 ];
 

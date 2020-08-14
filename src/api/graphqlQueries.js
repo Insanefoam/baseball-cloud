@@ -86,3 +86,12 @@ export const getPitchingLeaderboardQuery = (config) => ({
 }`,
   variables: { input: config },
 });
+
+export const updateFavoriteQuery = (id, value) => ({
+  query: `mutation UpdateFavoriteProfile ($form: UpdateFavoriteProfileInput!) {
+  update_favorite_profile (input: $form) {
+    favorite
+    }
+  }`,
+  variables: { form: { profile_id: id, favorite: value } },
+});
