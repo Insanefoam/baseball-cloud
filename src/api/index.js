@@ -6,6 +6,7 @@ import {
   getBattingLeaderboardQuery,
   getPitchingLeaderboardQuery,
   updateFavoriteQuery,
+  getProfilesQuery,
 } from "./graphqlQueries";
 
 export const signIn = (email, password) =>
@@ -34,4 +35,7 @@ export const getPithcingLeaderboard = (config) =>
   api.post("/graphql", getPitchingLeaderboardQuery(config));
 
 export const updateFavorite = (id, value) =>
-  api.post("graphql", updateFavoriteQuery(id, value));
+  api.post("/graphql", updateFavoriteQuery(id, value));
+
+export const getProfiles = (count, offset) =>
+  api.post("/graphql", getProfilesQuery(count, offset));

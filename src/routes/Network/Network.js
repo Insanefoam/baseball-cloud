@@ -3,14 +3,14 @@ import Navigation from "components/Navigation";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import "./Network.css";
-import LeaderboardForm from "components/LeaderboardForm";
+import NetworkForm from "components/NetworkForm";
 
 const Network = () => {
   return (
     <div className="container">
       <Header navigation={Navigation}></Header>
       <section className="leaderboard">
-        <LeaderboardForm></LeaderboardForm>
+        <NetworkForm></NetworkForm>
       </section>
       <Footer></Footer>
     </div>
