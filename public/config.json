@@ -382,7 +382,8 @@
     "@hr-border": "@gray-lighter"
   },
   "css": [
-    "tables.less"
+    "tables.less",
+    "pagination.less"
   ],
   "js": []
 }

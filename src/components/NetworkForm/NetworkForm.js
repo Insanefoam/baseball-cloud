@@ -5,7 +5,7 @@ import SelectorLeaderboard from "components/SelectorLeaderboard";
 import FlexibleInput from "components/FlexibleInput";
 import NetworkTable from "components/NetworkTable";
 
-const profilesCount = [
+const visibleProfiles = [
   { value: 10, label: "10" },
   { value: 15, label: "15" },
   { value: 25, label: "25" },
@@ -33,7 +33,7 @@ const NetworkForm = () => {
   return (
     <Form
       onSubmit={() => alert("submit")}
-      initialValues={{ profiles_count: 10, offset: 0 }}
+      initialValues={{ profiles_count: 10 }}
     >
       {({ handleSubmit, form }) => (
         <div className="leadeboard__container">
@@ -82,7 +82,7 @@ const NetworkForm = () => {
                   <Field
                     name="profiles_count"
                     component={SelectorLeaderboard}
-                    options={profilesCount}
+                    options={visibleProfiles}
                     placeholder="Show"
                   ></Field>
                 </div>

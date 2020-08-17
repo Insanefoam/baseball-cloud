@@ -96,7 +96,7 @@ export const updateFavoriteQuery = (id, value) => ({
   variables: { form: { profile_id: id, favorite: value } },
 });
 
-export const getProfilesQuery = (count, offset) => ({
+export const getProfilesQuery = (config) => ({
   query: `query Profiles ($input: FilterProfilesInput!) {
     profiles (input: $input) {
       profiles {
@@ -126,5 +126,5 @@ export const getProfilesQuery = (count, offset) => ({
       total_count
       }
     }`,
-  variables: { input: { profiles_count: count, offset } },
+  variables: { input: config },
 });

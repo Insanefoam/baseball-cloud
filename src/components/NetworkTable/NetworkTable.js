@@ -4,12 +4,15 @@ import { NavLink } from "react-router-dom";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./NetworkTable.css";
 
 const head = ["Player Name", "Sessions", "School", "Teams", "Age", "Favorite"];
 
 const NetworkTable = ({ config, changeCount }) => {
   const [data, setData] = useState([]);
-  const [isFetching, setFetching] = useState(false);
+  const [allProfiles, setAllProfiles] = useState(0);
+  const [offset, setOffset] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const makeFavoriteProfile = (id, value) => {
     updateFavorite(id, value).then((res) =>
@@ -32,11 +35,10 @@ const NetworkTable = ({ config, changeCount }) => {
   };
 
   const renderRows = (data) => {
-    console.log(data);
     return data.map((el, index) => (
       <tr key={index}>
         <td>
-          <NavLink to={`/profile/${el.batter_datraks_id}`}>
+          <NavLink to={`/profile/${el.id}`}>
             {`${el.first_name} ${el.last_name}`}
           </NavLink>
         </td>
@@ -63,12 +65,39 @@ const NetworkTable = ({ config, changeCount }) => {
     ));
   };
 
+  const renderPagination = (profilesCount, visibleCount) => {
+    const count =
+      profilesCount % visibleCount === 0
+        ? profilesCount / visibleCount
+        : Math.ceil(profilesCount / visibleCount);
+    let buttons = [];
+    for (let i = 0; i < count; i++) {
+      buttons = [
+        ...buttons,
+        <li
+          className={currentPage === i ? "page-item current" : "page-item"}
+          onClick={() => {
+            setOffset(visibleCount * i);
+            setCurrentPage(i);
+          }}
+          key={i}
+        >
+          <a className="page-link" href="network#">
+            {i + 1}
+          </a>
+        </li>,
+      ];
+    }
+    return buttons;
+  };
+
   useEffect(() => {
-    getProfiles(config.profiles_count, config.offset).then((res) => {
+    getProfiles({ ...config, offset }).then((res) => {
       changeCount(res.data.data.profiles.total_count);
       setData(res.data.data.profiles.profiles);
+      setAllProfiles(res.data.data.profiles.total_count);
     });
-  }, [changeCount, config]);
+  }, [changeCount, config, offset]);
 
   return (
     <div>
@@ -78,6 +107,23 @@ const NetworkTable = ({ config, changeCount }) => {
         </thead>
         <tbody>{renderRows(data)}</tbody>
       </table>
+      <nav aria-label="navigation" className="navigation">
+        <ul className="pagination">
+          <li className="page-item">
+            <a className="page-link" href="network#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          {config.profiles_count > 0
+            ? renderPagination(allProfiles, config.profiles_count)
+            : undefined}
+          <li className="page-item">
+            <a className="page-link" href="network#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 };

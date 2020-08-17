@@ -1,0 +1,22 @@
+.navigation {
+  position: sticky;
+  text-align: center;
+}
+
+.pagination > li > a {
+  color: #414f5a;
+}
+
+.page-item a {
+  border-radius: 4px;
+}
+
+.page-item + .current a {
+  color: #fff;
+  background-color: #48bbff;
+}
+
+.pagination > li > a:focus {
+  color: #fff;
+  background-color: #48bbff;
+}

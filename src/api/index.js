@@ -37,5 +37,5 @@ export const getPithcingLeaderboard = (config) =>
 export const updateFavorite = (id, value) =>
   api.post("/graphql", updateFavoriteQuery(id, value));
 
-export const getProfiles = (count, offset) =>
-  api.post("/graphql", getProfilesQuery(count, offset));
+export const getProfiles = (config) =>
+  api.post("/graphql", getProfilesQuery(config));
