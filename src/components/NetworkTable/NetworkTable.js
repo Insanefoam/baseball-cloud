@@ -70,6 +70,7 @@ const NetworkTable = ({ config, changeCount }) => {
       profilesCount % visibleCount === 0
         ? profilesCount / visibleCount
         : Math.ceil(profilesCount / visibleCount);
+    if (count <= 1) return undefined;
     let buttons = [];
     for (let i = 0; i < count; i++) {
       buttons = [
@@ -88,7 +89,23 @@ const NetworkTable = ({ config, changeCount }) => {
         </li>,
       ];
     }
-    return buttons;
+    return (
+      <nav aria-label="navigation" className="navigation">
+        <ul className="pagination">
+          <li className="page-item">
+            <a className="page-link" href="network#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          {buttons}
+          <li className="page-item">
+            <a className="page-link" href="network#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    );
   };
 
   useEffect(() => {
@@ -107,23 +124,9 @@ const NetworkTable = ({ config, changeCount }) => {
         </thead>
         <tbody>{renderRows(data)}</tbody>
       </table>
-      <nav aria-label="navigation" className="navigation">
-        <ul className="pagination">
-          <li className="page-item">
-            <a className="page-link" href="network#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          {config.profiles_count > 0
-            ? renderPagination(allProfiles, config.profiles_count)
-            : undefined}
-          <li className="page-item">
-            <a className="page-link" href="network#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      {config.profiles_count > 0
+        ? renderPagination(allProfiles, config.profiles_count)
+        : undefined}
     </div>
   );
 };
