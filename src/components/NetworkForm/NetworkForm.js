@@ -4,6 +4,7 @@ import { Form, Field } from "react-final-form";
 import SelectorLeaderboard from "components/SelectorLeaderboard";
 import FlexibleInput from "components/FlexibleInput";
 import NetworkTable from "components/NetworkTable";
+import BlueSearch from "images/BlueSearch";
 
 const visibleProfiles = [
   { value: 10, label: "10" },
@@ -92,11 +93,14 @@ const NetworkForm = () => {
               <div className="network__title-down left">{`Availible Player (${profilesCount})`}</div>
               <div className="network__filters">
                 <div className="network__filter">
-                  <Field
-                    name="player_name"
-                    component={FlexibleInput}
-                    placeholder="Player Name"
-                  ></Field>
+                  <Field name="player_name" placeholder="Player Name">
+                    {({ input, placeholder }) => (
+                      <span className="network__input">
+                        <BlueSearch></BlueSearch>
+                        <input {...input} placeholder={placeholder}></input>
+                      </span>
+                    )}
+                  </Field>
                 </div>
               </div>
             </div>

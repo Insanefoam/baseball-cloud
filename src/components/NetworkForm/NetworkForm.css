@@ -58,3 +58,26 @@
   color: #414f5a;
   font-size: 18px;
 }
+
+.network__input {
+  border-bottom: 1px solid #48bbff;
+}
+
+.network__input input {
+  border: none;
+  font-size: 16px;
+  color: #788b99;
+  width: 120px;
+  padding: 5px 10px 0px;
+  outline: none;
+}
+
+.network__input input::placeholder {
+  font-size: 16px;
+  color: #788b99;
+  opacity: 0.5;
+}
+
+.network__input svg {
+  cursor: pointer;
+}
