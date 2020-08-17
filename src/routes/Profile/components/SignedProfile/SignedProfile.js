@@ -4,12 +4,14 @@ import Footer from "components/Footer";
 import "./SignedProfile.css";
 import Navigation from "components/Navigation";
 import Arrow from "components/Arrow";
-import { getProfile } from "api";
+import { getProfile, updateFavorite } from "api";
 import AgeSVG from "images/AgeSVG";
 import HeightSVG from "images/HeightSVG";
 import WeightSVG from "images/WeightSVG";
 import ThrowsSVG from "images/ThrowsSVG";
 import BatsSVG from "images/BatsSVG";
+import FavoriteHeart from "images/FavoriteHeart";
+import UnfavoriteHeart from "images/UnfavoriteHeart";
 
 const capitalize = (str) => {
   return str ? str.charAt(0).toUpperCase() + str.slice(1) : undefined;
@@ -17,9 +19,17 @@ const capitalize = (str) => {
 
 const SignedProfile = ({ id }) => {
   const [profileInfo, setProfileInfo] = useState({});
+
   useEffect(() => {
     getProfile(id).then((res) => setProfileInfo(res.data.data.profile));
   }, [id]);
+
+  const changeFavorite = (id) => {
+    updateFavorite(id).then((res) =>
+      setProfileInfo({ ...profileInfo, favorite: !profileInfo.favorite })
+    );
+  };
+
   console.log(profileInfo);
   return (
     <div className="container">
@@ -28,8 +38,19 @@ const SignedProfile = ({ id }) => {
         <aside className="profile__aside">
           <div className="userinfo">
             <div className="userinfo__avatar">
-              <button>Favorite</button>
-              <div></div>
+              <button onClick={() => changeFavorite(id)}>
+                {profileInfo.favorite ? <FavoriteHeart /> : <UnfavoriteHeart />}
+              </button>
+              <div
+                style={
+                  profileInfo.avatar
+                    ? { backgroundImage: `url(${profileInfo.avatar})` }
+                    : {
+                        backgroundImage:
+                          "url('../../../../images/profile.png')",
+                      }
+                }
+              ></div>
             </div>
             <div className="userinfo__bio">
               <div className="userinfo__bio-big">{`${profileInfo.first_name} ${profileInfo.last_name}`}</div>
