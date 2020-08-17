@@ -1,0 +1,68 @@
+.userinfo__avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.userinfo__avatar button {
+  right: 0;
+  top: 0;
+  position: absolute;
+}
+
+.userinfo__avatar div {
+  background-image: url("../../../../images/profile.png");
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+}
+
+.userinfo__bio {
+  text-align: center;
+  font-size: 16px;
+  line-height: 19px;
+  color: #788b99;
+  margin-bottom: 10px;
+}
+
+.userinfo__bio-big {
+  font-size: 20px;
+  line-height: 24px;
+  color: #414f5a;
+}
+
+.personalinfo__item {
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.personalinfo__item-left {
+  display: flex;
+}
+
+.personalinfo__item-left svg {
+  margin-right: 10px;
+  width: 25px;
+}
+
+.schoolinfo__item {
+  margin-bottom: 10px;
+}
+
+.schoolinfo__item h1 {
+  font-size: 14px;
+  font-weight: 300;
+  color: #667784;
+  margin-bottom: 5px;
+}
+
+.schoolinfo__item h2 {
+  font-size: 16px;
+  color: #667784;
+  font-weight: 500;
+}
