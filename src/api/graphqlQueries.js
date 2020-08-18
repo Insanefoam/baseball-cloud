@@ -264,3 +264,23 @@ export const getBattingSummaryQuery = (id) => ({
   }`,
   variables: { id },
 });
+
+export const getPitchingSummaryQuery = (id) => ({
+  query: `query BattingSummary ($id: ID!) {
+    pitching_summary (id: $id) {
+      top_values {
+        id
+        velocity
+        spin_rate
+        pitch_type
+      }
+      average_values {
+        id
+        velocity
+        spin_rate
+        pitch_type
+      }
+    }
+  }`,
+  variables: { id },
+});

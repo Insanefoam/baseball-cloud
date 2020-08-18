@@ -1,68 +1,49 @@
 import React, { useEffect, useState } from "react";
 import "./SignedProfileTable.css";
-import { getBattingSummary } from "api";
-import { Line } from "rc-progress";
-import { maxTopValues } from "services/utils";
+import { getBattingSummary, getPitchingSummary } from "api";
+import { maxTopValuesBatter, maxTopValuesPitcher } from "services/utils";
+import TopValuesTable from "./components/TopValuesTable";
 
 const SignedProfileTable = ({ info }) => {
-  const [summary, setSummary] = useState({});
+  const [batterSummary, setBatterSummary] = useState({});
+  const [pitcherSummary, setPitcherSummary] = useState({});
   const id = info.id;
 
   useEffect(() => {
-    getBattingSummary(id).then((res) =>
-      setSummary({
-        ...res.data.data.batting_summary,
-        top: maxTopValues(res.data.data.batting_summary.top_values),
-      })
-    );
-  }, [id]);
-  console.log(summary);
+    if (info.position === "batter" || info.position2 === "batter") {
+      getBattingSummary(id).then((res) =>
+        setBatterSummary({
+          ...res.data.data.batting_summary,
+          topBatting: maxTopValuesBatter(
+            res.data.data.batting_summary.top_values
+          ),
+        })
+      );
+    }
+    if (info.position === "pitcher" || info.position2 === "pitcher") {
+      getPitchingSummary(id).then((res) =>
+        setPitcherSummary({
+          ...res.data.data.pitching_summary,
+          topPitching: maxTopValuesPitcher(
+            res.data.data.pitching_summary.top_values
+          ),
+        })
+      );
+    }
+  }, [id, info.position, info.position2]);
+  console.log(pitcherSummary);
   return (
     <div className="signedtable">
-      <div className="topvalues">
-        <div className="topvalues__title">Top Batting Values</div>
-        <div className="topvalues__values">
-          <div className="topvalues__value">
-            <div className="topvalues__value-top">
-              <p>Exit Velocity</p>
-              <strong>{summary.top && summary.top.exit_velocity}</strong>
-            </div>
-            <div>
-              <Line
-                percent={summary.top && (summary.top.exit_velocity / 160) * 100}
-                strokeWidth="2"
-                strokeColor="#FFD01A"
-              />
-            </div>
-          </div>
-          <div className="topvalues__value">
-            <div className="topvalues__value-top">
-              <p>Carry Distance</p>
-              <strong>{summary.top && summary.top.distance}</strong>
-            </div>
-            <div>
-              <Line
-                percent={summary.top && (summary.top.distance / 350) * 100}
-                strokeWidth="2"
-                strokeColor="#FFD01A"
-              />
-            </div>
-          </div>
-          <div className="topvalues__value">
-            <div className="topvalues__value-top">
-              <p>Launch Angle</p>
-              <strong>{summary.top && summary.top.launch_angle}</strong>
-            </div>
-            <div>
-              <Line
-                percent={summary.top && (summary.top.launch_angle / 55) * 100}
-                strokeWidth="2"
-                strokeColor="#FFD01A"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      {pitcherSummary.top_values ? (
+        <TopValuesTable data={pitcherSummary.topPitching} type="pitching" />
+      ) : (
+        <h1>Loading...</h1>
+      )}
+      {batterSummary.top_values ? (
+        <TopValuesTable data={batterSummary.topBatting} type="batting" />
+      ) : (
+        <h1>Loading...</h1>
+      )}
     </div>
   );
 };

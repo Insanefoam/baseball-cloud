@@ -3,37 +3,3 @@
   height: 100%;
   background-color: #808e99;
 }
-
-.topvalues {
-  background-color: #fff;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.topvalues__title {
-  font-size: 18px;
-  font-weight: 900;
-  color: #414f5a;
-  margin-bottom: 15px;
-}
-
-.topvalues__values {
-  display: flex;
-  justify-content: space-between;
-}
-
-.topvalues__value {
-  flex: 1;
-  margin-right: 20px;
-}
-
-.topvalues__value-top {
-  font-size: 16px;
-  color: #667784;
-  display: flex;
-}
-
-.topvalues__value-top p {
-  margin-right: 20px;
-}
