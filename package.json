@@ -13,6 +13,7 @@
     "axios": "^0.19.2",
     "final-form": "^4.20.1",
     "radium": "^0.26.0",
+    "rc-progress": "^3.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-final-form": "^6.5.1",

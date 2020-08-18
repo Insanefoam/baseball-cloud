@@ -9,6 +9,7 @@ import {
   getProfilesQuery,
   getCurrentProfileQuery,
   getProfileQuery,
+  getBattingSummaryQuery,
 } from "./graphqlQueries";
 
 export const signIn = (email, password) =>
@@ -46,3 +47,6 @@ export const getCurrentProfile = () =>
   api.post("/graphql", getCurrentProfileQuery());
 
 export const getProfile = (id) => api.post("/graphql", getProfileQuery(id));
+
+export const getBattingSummary = (id) =>
+  api.post("/graphql", getBattingSummaryQuery(id));

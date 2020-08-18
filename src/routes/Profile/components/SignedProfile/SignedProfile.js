@@ -3,7 +3,6 @@ import Header from "components/Header";
 import Footer from "components/Footer";
 import "./SignedProfile.css";
 import Navigation from "components/Navigation";
-import Arrow from "components/Arrow";
 import { getProfile, updateFavorite } from "api";
 import AgeSVG from "images/AgeSVG";
 import HeightSVG from "images/HeightSVG";
@@ -12,6 +11,7 @@ import ThrowsSVG from "images/ThrowsSVG";
 import BatsSVG from "images/BatsSVG";
 import FavoriteHeart from "images/FavoriteHeart";
 import UnfavoriteHeart from "images/UnfavoriteHeart";
+import SignedProfileTable from "./components/SignedProfileTable";
 
 const capitalize = (str) => {
   return str ? str.charAt(0).toUpperCase() + str.slice(1) : undefined;
@@ -30,7 +30,6 @@ const SignedProfile = ({ id }) => {
     );
   };
 
-  console.log(profileInfo);
   return (
     <div className="container">
       <Header navigation={Navigation} />
@@ -47,7 +46,7 @@ const SignedProfile = ({ id }) => {
                     ? { backgroundImage: `url(${profileInfo.avatar})` }
                     : {
                         backgroundImage:
-                          "url('../../../../images/profile.png')",
+                          "url('http://baseballcloud-front.herokuapp.com/4625203570ef5f6721fc145b05f790a9.png')",
                       }
                 }
               ></div>
@@ -126,17 +125,7 @@ const SignedProfile = ({ id }) => {
           </div>
         </aside>
         <main className="profile__main">
-          <div className="prhelp">
-            <div className="prhelp__img">
-              <Arrow></Arrow>
-            </div>
-            <div className="prhelp__title">Your Account</div>
-            <div className="prhelp__content">
-              Changing your profile options lets you control how others see you
-              and your profile. These settings include things like your name,
-              personal info and school.
-            </div>
-          </div>
+          <SignedProfileTable info={profileInfo}></SignedProfileTable>
         </main>
       </section>
       <Footer />

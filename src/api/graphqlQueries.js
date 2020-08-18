@@ -242,3 +242,25 @@ export const getProfileQuery = (id) => ({
 }`,
   variables: { id },
 });
+
+export const getBattingSummaryQuery = (id) => ({
+  query: `query BattingSummary ($id: ID!) {
+    batting_summary (id: $id) {
+      top_values {
+        id
+        distance
+        pitch_type
+        launch_angle
+        exit_velocity
+      }
+      average_values {
+        id
+        distance
+        pitch_type
+        launch_angle
+        exit_velocity
+      }
+    }
+  }`,
+  variables: { id },
+});

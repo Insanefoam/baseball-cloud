@@ -71,24 +71,22 @@ const NetworkTable = ({ config, changeCount }) => {
         ? profilesCount / visibleCount
         : Math.ceil(profilesCount / visibleCount);
     if (count <= 1) return undefined;
-    let buttons = [];
-    for (let i = 0; i < count; i++) {
-      buttons = [
-        ...buttons,
-        <li
-          className={currentPage === i ? "page-item current" : "page-item"}
-          onClick={() => {
-            setOffset(visibleCount * i);
-            setCurrentPage(i);
-          }}
-          key={i}
-        >
-          <a className="page-link" href="network#">
-            {i + 1}
-          </a>
-        </li>,
-      ];
-    }
+
+    const buttons = new Array(count).fill("").map((_, index) => (
+      <li
+        className={currentPage === index ? "page-item current" : "page-item"}
+        onClick={() => {
+          setOffset(visibleCount * index);
+          setCurrentPage(index);
+        }}
+        key={index}
+      >
+        <a className="page-link" href="network#">
+          {index + 1}
+        </a>
+      </li>
+    ));
+
     return (
       <nav aria-label="navigation" className="navigation">
         <ul className="pagination">

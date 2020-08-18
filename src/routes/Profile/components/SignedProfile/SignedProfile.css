@@ -10,6 +10,7 @@
   right: 0;
   top: 0;
   position: absolute;
+  cursor: pointer;
 }
 
 .userinfo__avatar div {
