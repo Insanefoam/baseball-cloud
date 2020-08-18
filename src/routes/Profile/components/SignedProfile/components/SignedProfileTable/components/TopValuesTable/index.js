@@ -1,2 +1,2 @@
-import TopValuesTable from "./TopvaluesTable";
+import TopValuesTable from "./TopValuesTable";
 export default TopValuesTable;
