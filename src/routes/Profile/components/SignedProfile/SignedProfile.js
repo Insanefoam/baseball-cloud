@@ -125,7 +125,9 @@ const SignedProfile = ({ id }) => {
           </div>
         </aside>
         <main className="profile__main">
-          <SignedProfileTable info={profileInfo}></SignedProfileTable>
+          {profileInfo.id ? (
+            <SignedProfileTable info={profileInfo} />
+          ) : undefined}
         </main>
       </section>
       <Footer />
