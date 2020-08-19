@@ -136,9 +136,9 @@ const LeaderbordTable = ({ config }) => {
 
   useEffect(() => {
     if (config.batPitch === "batting") {
-      getBattingLeaderboard({ ...config, batPitch: undefined }).then((res) =>
-        setData(res.data.data.leaderboard_batting.leaderboard_batting)
-      );
+      getBattingLeaderboard({ ...config, batPitch: undefined }).then((res) => {
+        setData(res.data.data.leaderboard_batting.leaderboard_batting);
+      });
     } else {
       getPithcingLeaderboard({ ...config, batPitch: undefined }).then((res) =>
         setData(res.data.data.leaderboard_pitching.leaderboard_pitching)

@@ -57,7 +57,7 @@ export const getBattingLeaderboardQuery = (config) => ({
       }
   }
 }`,
-  variables: { input: config },
+  variables: { input: { ...config, age: +config.age } },
 });
 
 export const getPitchingLeaderboardQuery = (config) => ({
@@ -84,7 +84,7 @@ export const getPitchingLeaderboardQuery = (config) => ({
       }
   }
 }`,
-  variables: { input: config },
+  variables: { input: { ...config, age: +config.age } },
 });
 
 export const updateFavoriteQuery = (id, value) => ({
@@ -126,7 +126,7 @@ export const getProfilesQuery = (config) => ({
       total_count
       }
     }`,
-  variables: { input: config },
+  variables: { input: { ...config, age: +config.age } },
 });
 
 export const getCurrentProfileQuery = () => ({
