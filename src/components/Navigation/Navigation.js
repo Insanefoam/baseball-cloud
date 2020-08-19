@@ -17,7 +17,7 @@ const Navigation = () => {
       <NavLink to="/network" className="nav__link">
         Network
       </NavLink>
-      <NavLink to="/" className="nav__profile">
+      <NavLink to="/profile" className="nav__profile">
         <div className="nav_profile-image"></div>
       </NavLink>
       <button className="dropdown" onClick={() => setDropdown(!isDropdown)}>

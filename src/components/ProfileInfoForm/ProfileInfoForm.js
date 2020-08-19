@@ -44,19 +44,19 @@ const ProfileInfoForm = () => {
 
   return (
     <Form onSubmit={submitHadler}>
-      {(handleSubmit) => (
+      {({ handleSubmit }) => (
         <div className="info-form">
           <div className="info-form__field">
             <div className="info-form__field-sub">
               <Field
-                name="firstName"
+                name="first_name"
                 component={InputProfile}
                 placeholder="First Name"
               />
             </div>
             <div className="info-form__field-sub">
               <Field
-                name="lastName"
+                name="last_name"
                 component={InputProfile}
                 placeholder="Last Name"
               />
@@ -72,7 +72,7 @@ const ProfileInfoForm = () => {
           </div>
           <div className="info-form__field">
             <Field
-              name="secondPosition"
+              name="position2"
               component={SelectorProfile}
               placeholder="Secondary Position in Game"
               options={[{ value: "none", label: "-" }, ...positions]}
@@ -109,7 +109,7 @@ const ProfileInfoForm = () => {
           <div className="info-form__field">
             <div className="info-form__field-sub">
               <Field
-                name="throws"
+                name="throws_hand"
                 component={SelectorProfile}
                 placeholder="Throws"
                 options={hands}
@@ -117,7 +117,7 @@ const ProfileInfoForm = () => {
             </div>
             <div className="info-form__field-sub">
               <Field
-                name="bats"
+                name="bats_hand"
                 component={SelectorProfile}
                 placeholder="Bats"
                 options={hands}
@@ -143,7 +143,7 @@ const ProfileInfoForm = () => {
           </div>
           <div className="info-form__field">
             <Field
-              name="schoolYear"
+              name="school_year"
               component={SelectorProfile}
               placeholder="School Year"
               options={schoolYears}
@@ -151,7 +151,7 @@ const ProfileInfoForm = () => {
           </div>
           <div className="info-form__field">
             <Field
-              name="team"
+              name="teams"
               component={SelectorProfile}
               placeholder="Team"
               options={teams.map((team) => ({
@@ -168,7 +168,7 @@ const ProfileInfoForm = () => {
           </div>
           <div className="info-form__field">
             <Field
-              name="facility"
+              name="facilities"
               component={SelectorProfile}
               placeholder="Facility"
               options={facilities.map((faculty) => ({
@@ -179,7 +179,9 @@ const ProfileInfoForm = () => {
           </div>
           <div className="info-form__field">
             <button className="info-form__button white">Cancel</button>
-            <button className="info-form__button blue">Save</button>
+            <button className="info-form__button blue" onClick={handleSubmit}>
+              Save
+            </button>
           </div>
         </div>
       )}

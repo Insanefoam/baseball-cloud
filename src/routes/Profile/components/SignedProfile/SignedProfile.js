@@ -21,7 +21,10 @@ const SignedProfile = ({ id }) => {
   const [profileInfo, setProfileInfo] = useState({});
 
   useEffect(() => {
-    getProfile(id).then((res) => setProfileInfo(res.data.data.profile));
+    getProfile(id).then((res) => {
+      console.log(res);
+      setProfileInfo(res.data.data.profile);
+    });
   }, [id]);
 
   const changeFavorite = (id) => {
@@ -111,13 +114,15 @@ const SignedProfile = ({ id }) => {
             <div className="schoolinfo__item">
               <h1>Team</h1>
               <h2>
-                {profileInfo.teams ? profileInfo.teams[0].name : undefined}
+                {profileInfo.teams === []
+                  ? profileInfo.teams[0].name
+                  : undefined}
               </h2>
             </div>
             <div className="schoolinfo__item">
               <h1>Facility</h1>
               <h2>
-                {profileInfo.facilities
+                {profileInfo.facilities === []
                   ? profileInfo.facilities[0].u_name
                   : undefined}
               </h2>
