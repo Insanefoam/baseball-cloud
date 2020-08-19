@@ -40,6 +40,7 @@
   color: #788b99;
   border-radius: 4px;
   outline: none;
+  position: relative;
 }
 
 .dropdown:hover {
@@ -48,4 +49,32 @@
 
 .dropdown span {
   margin-right: 5px;
+}
+
+.dropdown-visible {
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-invisible {
+  display: none;
+}
+
+.dropdown div {
+  background-color: #ffffff;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+  border: solid 1px #ebebeb;
+  padding: 8px 0px;
+}
+
+.dropdown a {
+  padding: 5px 20px 10px 10px;
+  text-align: left;
+}
+
+.dropdown a:hover {
+  text-decoration: none;
+  background-color: #ecf8ff;
 }
