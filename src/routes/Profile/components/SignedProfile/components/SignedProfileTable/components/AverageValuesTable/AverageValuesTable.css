@@ -25,3 +25,13 @@
   text-align: left;
   padding: 10px 0px;
 }
+
+.tables button {
+  margin-bottom: 10px;
+}
+
+.noinfo {
+  text-align: center;
+  color: #788b99;
+  font-size: 20px;
+}

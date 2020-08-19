@@ -37,7 +37,6 @@ const pitchingHead = [
 const LeaderbordTable = ({ config }) => {
   const tableType = config.batPitch;
   const [data, setData] = useState([]);
-  const [isFetching, setFetching] = useState(false);
 
   const makeFavorite = (id, value) => {
     updateFavorite(id, value).then((res) =>
