@@ -1,5 +1,5 @@
 .signedtable {
   flex: 1;
-  height: 100%;
   background-color: #808e99;
+  overflow-y: scroll;
 }

@@ -13,12 +13,14 @@
 
 .profile__main {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex: 1;
 }
 
 .prhelp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   max-width: 420px;
 }
