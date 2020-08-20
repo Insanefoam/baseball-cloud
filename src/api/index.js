@@ -11,6 +11,7 @@ import {
   getProfileQuery,
   getBattingSummaryQuery,
   getPitchingSummaryQuery,
+  updateProfileQuery,
 } from "./graphqlQueries";
 
 export const signIn = (email, password) =>
@@ -22,9 +23,9 @@ export const signIn = (email, password) =>
 export const signUp = (email, password, password_confirmation, role) =>
   api.post("/auth", { email, password, password_confirmation, role });
 
-export const validateToken = () => {};
-
 export const signOut = () => {};
+
+export const validateToken = () => api.get("/auth/validate_token");
 
 export const getSchools = () => api.post("/graphql", getSchoolsQuery());
 
@@ -54,3 +55,6 @@ export const getBattingSummary = (id) =>
 
 export const getPitchingSummary = (id) =>
   api.post("/graphql", getPitchingSummaryQuery(id));
+
+export const updateProfile = (config) =>
+  api.post("/graphql", updateProfileQuery(config));

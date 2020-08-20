@@ -3,7 +3,7 @@ import { Form, Field } from "react-final-form";
 import InputProfile from "components/InputProfile";
 import "./ProfileInfoForm.css";
 import SelectorProfile from "components/SelectorProfile";
-import { getSchools, getTeams, getFacilities } from "api";
+import { getSchools, getTeams, getFacilities, updateProfile } from "api";
 
 const positions = [
   { value: "catcher", label: "Catcher" },
@@ -29,7 +29,7 @@ const schoolYears = [
 ];
 
 const ProfileInfoForm = () => {
-  const submitHadler = (values) => alert(values);
+  const submitHadler = (values) => updateProfile(values);
   const [schools, setSchools] = useState([]);
   const [teams, setTeams] = useState([]);
   const [facilities, setFacilities] = useState([]);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "routes/Login";
 import Registration from "routes/Registration";
@@ -7,11 +7,21 @@ import Profile from "routes/Profile";
 import { useSelector } from "react-redux";
 import Leaderboard from "routes/Leaderboard";
 import Network from "routes/Network";
+import { validateToken } from "api";
+import { initUser } from "store/actions";
 
 const Router = () => {
   const userInfo = useSelector((state) => state.auth);
+  const [isValidating, setValidating] = useState(true);
+  useEffect(() => {
+    validateToken().then((res) => {
+      initUser(res.Uid, res.Client, res["Access-Token"]);
+      setValidating(!isValidating);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  if (userInfo.token) {
+  if (!isValidating && userInfo.token) {
     return (
       <Switch>
         <Route exact path="/">
