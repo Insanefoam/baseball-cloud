@@ -8,16 +8,16 @@ import "./NetworkTable.css";
 
 const head = ["Player Name", "Sessions", "School", "Teams", "Age", "Favorite"];
 
-const NetworkTable = ({ config, changeCount }) => {
-  const [data, setData] = useState([]);
+const NetworkTable = ({ filters, changeCount }) => {
+  const [playersInfo, setPlayersInfo] = useState([]);
   const [allProfiles, setAllProfiles] = useState(0);
   const [offset, setOffset] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
 
-  const makeFavoriteProfile = (id, value) => {
+  const updateFavoriteHandler = (id, value) => {
     updateFavorite(id, value).then((res) =>
-      setData(
-        data.map((row) =>
+      setPlayersInfo(
+        playersInfo.map((row) =>
           row.id === id || row.id === id
             ? { ...row, favorite: !row.favorite }
             : row
@@ -34,8 +34,8 @@ const NetworkTable = ({ config, changeCount }) => {
     ));
   };
 
-  const renderRows = (data) => {
-    return data.map((el, index) => (
+  const renderRows = (rawPlayers) => {
+    return rawPlayers.map((el, index) => (
       <tr key={index}>
         <td>
           <NavLink to={`/profile/${el.id}`}>
@@ -51,13 +51,13 @@ const NetworkTable = ({ config, changeCount }) => {
             <FontAwesomeIcon
               icon={solidHeart}
               color="#48BBFF"
-              onClick={() => makeFavoriteProfile(el.id, !el.favorite)}
+              onClick={() => updateFavoriteHandler(el.id, !el.favorite)}
             />
           ) : (
             <FontAwesomeIcon
               icon={regularHeart}
               color="#48BBFF"
-              onClick={() => makeFavoriteProfile(el.id, !el.favorite)}
+              onClick={() => updateFavoriteHandler(el.id, !el.favorite)}
             />
           )}
         </td>
@@ -107,12 +107,12 @@ const NetworkTable = ({ config, changeCount }) => {
   };
 
   useEffect(() => {
-    getProfiles({ ...config, offset }).then((res) => {
+    getProfiles({ ...filters, offset }).then((res) => {
       changeCount(res.data.data.profiles.total_count);
-      setData(res.data.data.profiles.profiles);
+      setPlayersInfo(res.data.data.profiles.profiles);
       setAllProfiles(res.data.data.profiles.total_count);
     });
-  }, [changeCount, config, offset]);
+  }, [changeCount, filters, offset]);
 
   return (
     <div>
@@ -120,10 +120,10 @@ const NetworkTable = ({ config, changeCount }) => {
         <thead>
           <tr>{renderHead()}</tr>
         </thead>
-        <tbody>{renderRows(data)}</tbody>
+        <tbody>{renderRows(playersInfo)}</tbody>
       </table>
-      {config.profiles_count > 0
-        ? renderPagination(allProfiles, config.profiles_count)
+      {filters.profiles_count > 0
+        ? renderPagination(allProfiles, filters.profiles_count)
         : undefined}
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import "./AverageValuesTable.css";
 import { Form, Field } from "react-final-form";
 
-const AverageValuesTable = ({ data }) => {
+const AverageValuesTable = ({ values }) => {
   const renderHead = (titles) => {
     return titles.map((title, index) => (
       <th scope="col" key={index}>
@@ -11,9 +11,9 @@ const AverageValuesTable = ({ data }) => {
     ));
   };
 
-  const renderRows = (type, data) => {
+  const renderRows = (type, rawValues) => {
     if (type === "pitching") {
-      return data.map((el, index) => (
+      return rawValues.map((el, index) => (
         <tr key={index}>
           <td>{el.pitch_type}</td>
           <td>{el.velocity}</td>
@@ -22,7 +22,7 @@ const AverageValuesTable = ({ data }) => {
       ));
     }
     if (type === "batting") {
-      return data.map((el, index) => (
+      return rawValues.map((el, index) => (
         <tr key={index}>
           <td>{el.pitch_type}</td>
           <td>{el.distance}</td>
@@ -34,7 +34,7 @@ const AverageValuesTable = ({ data }) => {
   };
 
   const renderBattingTables = () =>
-    data.batting.top_values ? (
+    values.batting.top_values ? (
       <div>
         <div>
           <span>Top Batting Values</span>
@@ -49,7 +49,7 @@ const AverageValuesTable = ({ data }) => {
                 ])}
               </tr>
             </thead>
-            <tbody>{renderRows("batting", data.batting.top_values)}</tbody>
+            <tbody>{renderRows("batting", values.batting.top_values)}</tbody>
           </table>
         </div>
         <div>
@@ -65,7 +65,9 @@ const AverageValuesTable = ({ data }) => {
                 ])}
               </tr>
             </thead>
-            <tbody>{renderRows("batting", data.batting.average_values)}</tbody>
+            <tbody>
+              {renderRows("batting", values.batting.average_values)}
+            </tbody>
           </table>
         </div>
       </div>
@@ -74,7 +76,7 @@ const AverageValuesTable = ({ data }) => {
     );
 
   const renderPitchingTables = () =>
-    data.pitching.top_values ? (
+    values.pitching.top_values ? (
       <div>
         <div>
           <span>Top Pitching Values</span>
@@ -82,7 +84,7 @@ const AverageValuesTable = ({ data }) => {
             <thead>
               <tr>{renderHead(["Pitch Type", "Velocity", "Spin Rate"])}</tr>
             </thead>
-            <tbody>{renderRows("pitching", data.pitching.top_values)}</tbody>
+            <tbody>{renderRows("pitching", values.pitching.top_values)}</tbody>
           </table>
         </div>
         <div>
@@ -92,7 +94,7 @@ const AverageValuesTable = ({ data }) => {
               <tr>{renderHead(["Pitch Type", "Velocity", "Spin Rate"])}</tr>
             </thead>
             <tbody>
-              {renderRows("pitching", data.pitching.average_values)}
+              {renderRows("pitching", values.pitching.average_values)}
             </tbody>
           </table>
         </div>
@@ -103,15 +105,15 @@ const AverageValuesTable = ({ data }) => {
 
   return (
     <Form
-      onSubmit={() => console.log("submit")}
+      onSubmit={() => null}
       initialValues={
-        data.batting.top_values
-          ? { batPitch: "batting" }
-          : { batPitch: "pitching" }
+        values.batting.top_values
+          ? { scoresType: "batting" }
+          : { scoresType: "pitching" }
       }
     >
       {({ handleSubmit }) => (
-        <Field name="batPitch">
+        <Field name="scoresType">
           {({ input }) => (
             <div className="tables">
               <button

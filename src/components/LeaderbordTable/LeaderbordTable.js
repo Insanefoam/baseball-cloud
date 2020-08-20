@@ -36,12 +36,12 @@ const pitchingHead = [
 
 const LeaderbordTable = ({ filters }) => {
   const { playersType } = filters;
-  const [data, setData] = useState([]);
+  const [playersInfo, setPlayersInfo] = useState([]);
 
-  const makeFavorite = (id, value) => {
+  const updateFavoriteHandler = (id, value) => {
     updateFavorite(id, value).then((res) =>
-      setData(
-        data.map((row) =>
+      setPlayersInfo(
+        playersInfo.map((row) =>
           row.batter_datraks_id === id || row.pitcher_datraks_id === id
             ? { ...row, favorite: !row.favorite }
             : row
@@ -66,9 +66,9 @@ const LeaderbordTable = ({ filters }) => {
     }
   };
 
-  const renderRows = (playersType, data) => {
+  const renderRows = (playersType, rawPlayers) => {
     if (playersType === "batting") {
-      return data.map((el, index) => (
+      return rawPlayers.map((el, index) => (
         <tr key={index}>
           <th scope="row">{index + 1}</th>
           <td>
@@ -87,20 +87,24 @@ const LeaderbordTable = ({ filters }) => {
               <FontAwesomeIcon
                 icon={solidHeart}
                 color="#48BBFF"
-                onClick={() => makeFavorite(el.batter_datraks_id, !el.favorite)}
+                onClick={() =>
+                  updateFavoriteHandler(el.batter_datraks_id, !el.favorite)
+                }
               />
             ) : (
               <FontAwesomeIcon
                 icon={regularHeart}
                 color="#48BBFF"
-                onClick={() => makeFavorite(el.batter_datraks_id, !el.favorite)}
+                onClick={() =>
+                  updateFavoriteHandler(el.batter_datraks_id, !el.favorite)
+                }
               />
             )}
           </td>
         </tr>
       ));
     } else {
-      return data.map((el, index) => (
+      return rawPlayers.map((el, index) => (
         <tr key={index}>
           <th scope="row">{index + 1}</th>
           <td>
@@ -119,13 +123,13 @@ const LeaderbordTable = ({ filters }) => {
               <FontAwesomeIcon
                 icon={solidHeart}
                 color="#48BBFF"
-                onClick={() => makeFavorite(el.pitcher_datraks_id)}
+                onClick={() => updateFavoriteHandler(el.pitcher_datraks_id)}
               />
             ) : (
               <FontAwesomeIcon
                 icon={regularHeart}
                 color="#48BBFF"
-                onClick={() => makeFavorite(el.pitcher_datraks_id)}
+                onClick={() => updateFavoriteHandler(el.pitcher_datraks_id)}
               />
             )}
           </td>
@@ -138,7 +142,7 @@ const LeaderbordTable = ({ filters }) => {
     if (filters.playersType === "batting") {
       getBattingLeaderboard({ ...filters, playersType: undefined }).then(
         (res) => {
-          setData(res.data.data.leaderboard_batting.leaderboard_batting);
+          setPlayersInfo(res.data.data.leaderboard_batting.leaderboard_batting);
         }
       );
     } else {
@@ -146,7 +150,7 @@ const LeaderbordTable = ({ filters }) => {
         ...filters,
         playersType: undefined,
       }).then((res) =>
-        setData(res.data.data.leaderboard_pitching.leaderboard_pitching)
+        setPlayersInfo(res.data.data.leaderboard_pitching.leaderboard_pitching)
       );
     }
   }, [filters]);
@@ -157,7 +161,7 @@ const LeaderbordTable = ({ filters }) => {
         <thead>
           <tr>{renderHead(playersType)}</tr>
         </thead>
-        <tbody>{renderRows(playersType, data)}</tbody>
+        <tbody>{renderRows(playersType, playersInfo)}</tbody>
       </table>
     </div>
   );

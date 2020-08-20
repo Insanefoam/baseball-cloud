@@ -27,18 +27,18 @@ const SignedProfileTable = ({ info }) => {
     <div className="signedtable">
       {pitcherSummary.top_values && (
         <TopValuesTable
-          data={maxTopValuesPitcher(pitcherSummary.top_values)}
+          values={maxTopValuesPitcher(pitcherSummary.top_values)}
           type="pitching"
         />
       )}
       {batterSummary.top_values && (
         <TopValuesTable
-          data={maxTopValuesBatter(batterSummary.top_values)}
+          values={maxTopValuesBatter(batterSummary.top_values)}
           type="batting"
         />
       )}
       <AvarageValuesTable
-        data={{ pitching: pitcherSummary, batting: batterSummary }}
+        values={{ pitching: pitcherSummary, batting: batterSummary }}
       />
     </div>
   );

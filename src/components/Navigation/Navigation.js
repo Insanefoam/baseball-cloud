@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 
 const Navigation = () => {
   const dispatch = useDispatch();
-  const [isDropdown, setDropdown] = useState(false);
+  const [isDropdown, setIsDropdown] = useState(false);
 
   return (
     <nav className="nav">
@@ -21,7 +21,7 @@ const Navigation = () => {
       <NavLink to="/profile" className="nav__profile">
         <div className="nav_profile-image"></div>
       </NavLink>
-      <button className="dropdown" onClick={() => setDropdown(!isDropdown)}>
+      <button className="dropdown" onClick={() => setIsDropdown(!isDropdown)}>
         <span>Profile name</span>
         <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
         <div className={isDropdown ? "dropdown-visible" : "dropdown-invisible"}>

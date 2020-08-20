@@ -2,7 +2,7 @@ import React from "react";
 import { Line } from "rc-progress";
 import "./TopValuesTable.css";
 
-const TopValuesTable = ({ data, type }) => {
+const TopValuesTable = ({ values, type }) => {
   return (
     <div className="topvalues">
       <div className="topvalues__title">
@@ -14,16 +14,16 @@ const TopValuesTable = ({ data, type }) => {
             <p>{type === "batting" ? "Exit Velocity" : "Fastball Velocity"}</p>
             <strong>
               {type === "batting"
-                ? data.exit_velocity || "N/A"
-                : data.velocity || "N/A"}
+                ? values.exit_velocity || "N/A"
+                : values.velocity || "N/A"}
             </strong>
           </div>
           <div>
             <Line
               percent={
                 type === "batting"
-                  ? (data.exit_velocity / 160) * 100
-                  : (data.velocity / 120) * 100
+                  ? (values.exit_velocity / 160) * 100
+                  : (values.velocity / 120) * 100
               }
               strokeWidth="2"
               strokeColor="#FFD01A"
@@ -35,16 +35,16 @@ const TopValuesTable = ({ data, type }) => {
             <p>{type === "batting" ? "Carry Distance" : "Spin Rate"}</p>
             <strong>
               {type === "batting"
-                ? data.distance || "N/A"
-                : data.spin_rate || "N/A"}
+                ? values.distance || "N/A"
+                : values.spin_rate || "N/A"}
             </strong>
           </div>
           <div>
             <Line
               percent={
                 type === "batting"
-                  ? (data.distance / 350) * 100
-                  : (data.spin_rate / 5000) * 100
+                  ? (values.distance / 350) * 100
+                  : (values.spin_rate / 5000) * 100
               }
               strokeWidth="2"
               strokeColor="#FFD01A"
@@ -56,16 +56,16 @@ const TopValuesTable = ({ data, type }) => {
             <p>{type === "batting" ? "Launch Angle" : "Pitch Movement"}</p>
             <strong>
               {type === "batting"
-                ? data.launch_angle || "N/A"
-                : data.pitch_movement || "N/A"}
+                ? values.launch_angle || "N/A"
+                : values.pitch_movement || "N/A"}
             </strong>
           </div>
           <div>
             <Line
               percent={
                 type === "batting"
-                  ? (data.launch_angle / 55) * 100
-                  : (data.pitch_movement / 100) * 100
+                  ? (values.launch_angle / 55) * 100
+                  : (values.pitch_movement / 100) * 100
               }
               strokeWidth="2"
               strokeColor="#FFD01A"

@@ -23,7 +23,7 @@ const positions = [
   { value: "pitcher", label: "Pitcher" },
 ];
 
-const favs = [
+const favoriteOptions = [
   { value: "", label: "All" },
   { value: 1, label: "Favorite" },
 ];
@@ -75,7 +75,7 @@ const NetworkForm = () => {
                   <Field
                     name="favorite"
                     component={FilterSelect}
-                    options={favs}
+                    options={favoriteOptions}
                     placeholder="All"
                   ></Field>
                 </div>
@@ -106,7 +106,7 @@ const NetworkForm = () => {
             </div>
           </div>
           <NetworkTable
-            config={form.getState().values}
+            filters={form.getState().values}
             changeCount={setProfilesCount}
           ></NetworkTable>
         </div>
