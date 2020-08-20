@@ -3,7 +3,11 @@ import SignUpForm from "components/SignUpForm";
 import AuthContainer from "components/AuthContainer";
 
 const Registration = () => {
-  return <AuthContainer centralForm={SignUpForm}></AuthContainer>;
+  return (
+    <AuthContainer>
+      <SignUpForm />
+    </AuthContainer>
+  );
 };
 
 export default Registration;

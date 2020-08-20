@@ -3,7 +3,11 @@ import AuthContainer from "components/AuthContainer";
 import RecoveryForm from "components/RecoveryForm/RecoveryForm";
 
 const ForgotPassword = () => {
-  return <AuthContainer centralForm={RecoveryForm}></AuthContainer>;
+  return (
+    <AuthContainer>
+      <RecoveryForm />
+    </AuthContainer>
+  );
 };
 
 export default ForgotPassword;
