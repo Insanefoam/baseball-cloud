@@ -11,7 +11,7 @@ const ProfileSelect = ({ options, placeholder, input }) => {
       isSearchable={false}
       maxMenuHeight={200}
       onChange={({ value }) => input.onChange(value)}
-    ></Select>
+    />
   );
 };
 

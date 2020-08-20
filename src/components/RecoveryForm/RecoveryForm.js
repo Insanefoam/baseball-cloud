@@ -7,6 +7,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const RecoveryForm = () => {
   const submitHandler = ({ email, password }, form) => {
+    //API doesnt support Account Recovery
     return undefined;
   };
 
@@ -29,7 +30,7 @@ const RecoveryForm = () => {
                 placeholder="Email"
                 type="email"
                 icon={faUser}
-              ></Field>
+              />
             </div>
             {submitErrors && (
               <div className="sigin__error">

@@ -65,28 +65,28 @@ const SignedProfile = ({ id }) => {
           <div className="personalinfo">
             <div className="personalinfo__item">
               <div className="personalinfo__item-left">
-                <AgeSVG></AgeSVG>
+                <AgeSVG />
                 Age
               </div>
               <div className="personalinfo__item-right">{profileInfo.age}</div>
             </div>
             <div className="personalinfo__item">
               <div className="personalinfo__item-left">
-                <HeightSVG></HeightSVG>
+                <HeightSVG />
                 Height
               </div>
               <div className="personalinfo__item-right">{`${profileInfo.feet} ft ${profileInfo.inches} in`}</div>
             </div>
             <div className="personalinfo__item">
               <div className="personalinfo__item-left">
-                <WeightSVG></WeightSVG>
+                <WeightSVG />
                 Weight
               </div>
               <div className="personalinfo__item-right">{`${profileInfo.weight} lbs`}</div>
             </div>
             <div className="personalinfo__item">
               <div className="personalinfo__item-left">
-                <ThrowsSVG></ThrowsSVG>
+                <ThrowsSVG />
                 Throws
               </div>
               <div className="personalinfo__item-right">
@@ -95,7 +95,7 @@ const SignedProfile = ({ id }) => {
             </div>
             <div className="personalinfo__item">
               <div className="personalinfo__item-left">
-                <BatsSVG></BatsSVG>
+                <BatsSVG />
                 Bats
               </div>
               <div className="personalinfo__item-right">

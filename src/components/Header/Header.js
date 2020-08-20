@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "components/Logo";
+import Logo from "images/Logo";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
 
@@ -8,7 +8,7 @@ const Header = ({ navigation: Navigation }) => {
     <header>
       <NavLink to="/">
         <div className="logo">
-          <Logo></Logo>
+          <Logo />
         </div>
       </NavLink>
       {Navigation && <Navigation />}

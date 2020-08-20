@@ -6,7 +6,7 @@ const InputAuth = ({ input, placeholder, icon }) => {
   return (
     <div className="input">
       <span className="input__icon">
-        <FontAwesomeIcon icon={icon}></FontAwesomeIcon>
+        <FontAwesomeIcon icon={icon} />
       </span>
       <input
         {...input}
@@ -14,7 +14,7 @@ const InputAuth = ({ input, placeholder, icon }) => {
         className="input__field"
         onFocus={(e) => (e.target.placeholder = "")}
         onBlur={(e) => (e.target.placeholder = placeholder)}
-      ></input>
+      />
     </div>
   );
 };

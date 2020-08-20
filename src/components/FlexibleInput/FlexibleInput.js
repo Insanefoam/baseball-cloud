@@ -6,7 +6,7 @@ const FlexibleInput = ({ input, placeholder }) => {
   return (
     <span className="flexible-input">
       <label className="flexible-input__label">
-        <input {...input} placeholder={placeholder}></input>
+        <input {...input} placeholder={placeholder} />
         <BlueArrowSVG />
       </label>
     </span>

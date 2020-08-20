@@ -8,11 +8,11 @@ import LeaderboardForm from "components/LeaderboardForm";
 const Leaderboard = () => {
   return (
     <div className="container">
-      <Header navigation={Navigation}></Header>
+      <Header navigation={Navigation} />
       <section className="leaderboard">
-        <LeaderboardForm></LeaderboardForm>
+        <LeaderboardForm />
       </section>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };

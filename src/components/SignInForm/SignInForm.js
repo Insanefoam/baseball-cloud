@@ -48,7 +48,7 @@ const SignInForm = () => {
                 placeholder="Email"
                 type="email"
                 icon={faUser}
-              ></Field>
+              />
             </div>
             <div className="form__input">
               <Field
@@ -57,7 +57,7 @@ const SignInForm = () => {
                 placeholder="Password"
                 type="password"
                 icon={faLock}
-              ></Field>
+              />
             </div>
             {submitErrors && (
               <div className="sigin__error">

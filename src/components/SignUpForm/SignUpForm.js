@@ -136,7 +136,7 @@ const SignUpForm = () => {
                 placeholder="Email"
                 type="email"
                 icon={faUser}
-              ></Field>
+              />
               {submitErrors && (
                 <div className="signup__error">{submitErrors.email}</div>
               )}
@@ -148,7 +148,7 @@ const SignUpForm = () => {
                 placeholder="Password"
                 type="password"
                 icon={faLock}
-              ></Field>
+              />
               {submitErrors && (
                 <div className="signup__error">{submitErrors.password}</div>
               )}
@@ -160,7 +160,7 @@ const SignUpForm = () => {
                 placeholder="Confirm Password"
                 type="password"
                 icon={faCheck}
-              ></Field>
+              />
               {submitErrors && (
                 <div className="signup__error">
                   {submitErrors.passwordConfirmation}

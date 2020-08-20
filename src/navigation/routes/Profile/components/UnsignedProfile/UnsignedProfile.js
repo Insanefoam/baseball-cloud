@@ -16,7 +16,7 @@ const UnsignedProfile = () => {
           <div className="profile__aside-avatar">
             <UploadAvatarForm />
           </div>
-          <ProfileInfoForm></ProfileInfoForm>
+          <ProfileInfoForm />
         </aside>
         <main className="profile__main">
           <div className="prhelp">

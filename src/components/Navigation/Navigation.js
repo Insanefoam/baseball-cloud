@@ -23,7 +23,7 @@ const Navigation = () => {
       </NavLink>
       <button className="dropdown" onClick={() => setIsDropdown(!isDropdown)}>
         <span>Profile name</span>
-        <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
+        <FontAwesomeIcon icon={faCaretDown} />
         <div className={isDropdown ? "dropdown-visible" : "dropdown-invisible"}>
           <NavLink to="/profile">My Profile</NavLink>
           <NavLink onClick={() => dispatch(logoutUser())} to="/login">

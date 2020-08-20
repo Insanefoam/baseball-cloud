@@ -23,7 +23,7 @@ const positions = [
   { value: "pitcher", label: "Pitcher" },
 ];
 
-const favoriteOptions = [
+const favs = [
   { value: "", label: "All" },
   { value: 1, label: "Favorite" },
 ];
@@ -47,14 +47,14 @@ const NetworkForm = () => {
                     name="school"
                     component={FlexibleInput}
                     placeholder="School"
-                  ></Field>
+                  />
                 </div>
                 <div className="network__filter">
                   <Field
                     name="team"
                     component={FlexibleInput}
                     placeholder="Team"
-                  ></Field>
+                  />
                 </div>
                 <div className="network__filter">
                   <Field
@@ -62,22 +62,22 @@ const NetworkForm = () => {
                     component={FilterSelect}
                     options={positions}
                     placeholder="Position"
-                  ></Field>
+                  />
                 </div>
                 <div className="network__filter">
                   <Field
                     name="age"
                     component={FlexibleInput}
                     placeholder="Age"
-                  ></Field>
+                  />
                 </div>
                 <div className="network__filter">
                   <Field
                     name="favorite"
                     component={FilterSelect}
-                    options={favoriteOptions}
+                    options={favs}
                     placeholder="All"
-                  ></Field>
+                  />
                 </div>
                 <div className="network__filter">
                   <Field
@@ -85,7 +85,7 @@ const NetworkForm = () => {
                     component={FilterSelect}
                     options={visibleProfiles}
                     placeholder="Show"
-                  ></Field>
+                  />
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ const NetworkForm = () => {
           <NetworkTable
             filters={form.getState().values}
             changeCount={setProfilesCount}
-          ></NetworkTable>
+          />
         </div>
       )}
     </Form>

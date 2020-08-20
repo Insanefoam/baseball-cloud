@@ -8,11 +8,11 @@ import NetworkForm from "components/NetworkForm";
 const Network = () => {
   return (
     <div className="container">
-      <Header navigation={Navigation}></Header>
+      <Header navigation={Navigation} />
       <section className="leaderboard">
-        <NetworkForm></NetworkForm>
+        <NetworkForm />
       </section>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };
