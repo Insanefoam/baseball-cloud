@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./NetworkForm.css";
 import { Form, Field } from "react-final-form";
-import SelectorLeaderboard from "components/SelectorLeaderboard";
+import FilterSelect from "components/FilterSelect";
 import FlexibleInput from "components/FlexibleInput";
 import NetworkTable from "components/NetworkTable";
 import BlueSearchSVG from "images/BlueSearchSVG.js";
@@ -59,7 +59,7 @@ const NetworkForm = () => {
                 <div className="network__filter">
                   <Field
                     name="position"
-                    component={SelectorLeaderboard}
+                    component={FilterSelect}
                     options={positions}
                     placeholder="Position"
                   ></Field>
@@ -74,7 +74,7 @@ const NetworkForm = () => {
                 <div className="network__filter">
                   <Field
                     name="favorite"
-                    component={SelectorLeaderboard}
+                    component={FilterSelect}
                     options={favs}
                     placeholder="All"
                   ></Field>
@@ -82,7 +82,7 @@ const NetworkForm = () => {
                 <div className="network__filter">
                   <Field
                     name="profiles_count"
-                    component={SelectorLeaderboard}
+                    component={FilterSelect}
                     options={visibleProfiles}
                     placeholder="Show"
                   ></Field>

@@ -2,7 +2,7 @@ import React from "react";
 import Select from "react-select";
 import styles from "./styles";
 
-const SelectorProfile = ({ options, placeholder, input }) => {
+const ProfileSelect = ({ options, placeholder, input }) => {
   return (
     <Select
       options={options}
@@ -15,4 +15,4 @@ const SelectorProfile = ({ options, placeholder, input }) => {
   );
 };
 
-export default SelectorProfile;
+export default ProfileSelect;

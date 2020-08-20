@@ -2,7 +2,7 @@ import React from "react";
 import Select from "react-select";
 import styles from "./styles";
 
-const SelectorLeaderboard = ({ options, placeholder, input }) => {
+const FilterSelect = ({ options, placeholder, input }) => {
   return (
     <Select
       options={options}
@@ -15,4 +15,4 @@ const SelectorLeaderboard = ({ options, placeholder, input }) => {
   );
 };
 
-export default SelectorLeaderboard;
+export default FilterSelect;

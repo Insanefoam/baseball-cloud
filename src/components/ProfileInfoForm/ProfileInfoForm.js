@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Field } from "react-final-form";
 import InputProfile from "components/InputProfile";
 import "./ProfileInfoForm.css";
-import SelectorProfile from "components/SelectorProfile";
+import ProfileSelect from "components/ProfileSelect";
 import { getSchools, getTeams, getFacilities, updateProfile } from "api";
 
 const positions = [
@@ -65,7 +65,7 @@ const ProfileInfoForm = () => {
           <div className="info-form__field">
             <Field
               name="position"
-              component={SelectorProfile}
+              component={ProfileSelect}
               placeholder="Position in Game"
               options={positions}
             />
@@ -73,7 +73,7 @@ const ProfileInfoForm = () => {
           <div className="info-form__field">
             <Field
               name="position2"
-              component={SelectorProfile}
+              component={ProfileSelect}
               placeholder="Secondary Position in Game"
               options={[{ value: "none", label: "-" }, ...positions]}
             />
@@ -110,7 +110,7 @@ const ProfileInfoForm = () => {
             <div className="info-form__field-sub">
               <Field
                 name="throws_hand"
-                component={SelectorProfile}
+                component={ProfileSelect}
                 placeholder="Throws"
                 options={hands}
               />
@@ -118,7 +118,7 @@ const ProfileInfoForm = () => {
             <div className="info-form__field-sub">
               <Field
                 name="bats_hand"
-                component={SelectorProfile}
+                component={ProfileSelect}
                 placeholder="Bats"
                 options={hands}
               />
@@ -133,7 +133,7 @@ const ProfileInfoForm = () => {
           <div className="info-form__field">
             <Field
               name="school"
-              component={SelectorProfile}
+              component={ProfileSelect}
               placeholder="School"
               options={schools.map((school) => ({
                 value: school.id,
@@ -144,7 +144,7 @@ const ProfileInfoForm = () => {
           <div className="info-form__field">
             <Field
               name="school_year"
-              component={SelectorProfile}
+              component={ProfileSelect}
               placeholder="School Year"
               options={schoolYears}
             />
@@ -152,7 +152,7 @@ const ProfileInfoForm = () => {
           <div className="info-form__field">
             <Field
               name="teams"
-              component={SelectorProfile}
+              component={ProfileSelect}
               placeholder="Team"
               options={teams.map((team) => ({
                 value: team.id,
@@ -169,7 +169,7 @@ const ProfileInfoForm = () => {
           <div className="info-form__field">
             <Field
               name="facilities"
-              component={SelectorProfile}
+              component={ProfileSelect}
               placeholder="Facility"
               options={facilities.map((faculty) => ({
                 value: faculty.id,

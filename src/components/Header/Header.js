@@ -11,7 +11,7 @@ const Header = ({ navigation: Navigation }) => {
           <Logo></Logo>
         </div>
       </NavLink>
-      {Navigation ? <Navigation /> : undefined}
+      {Navigation && <Navigation />}
     </header>
   );
 };

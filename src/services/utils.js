@@ -1,6 +1,6 @@
 export const maxTopValuesBatter = (topValues) => {
   const tmp = topValues.map(
-    (_) => _.distance + _.launch_angle + _.exit_velocity
+    (el) => el.distance + el.launch_angle + el.exit_velocity
   );
   const max = Math.max(...tmp);
 
@@ -11,7 +11,7 @@ export const maxTopValuesBatter = (topValues) => {
 };
 
 export const maxTopValuesPitcher = (topValues) => {
-  const tmp = topValues.map((_) => _.velocity + _.spin_rate);
+  const tmp = topValues.map((el) => el.velocity + el.spin_rate);
   const max = Math.max(...tmp);
 
   for (let i = 0; i < tmp.length; ++i) {

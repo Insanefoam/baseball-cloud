@@ -1,7 +1,7 @@
 import React from "react";
 import "./LeaderboardForm.css";
 import { Form, Field } from "react-final-form";
-import SelectorLeaderboard from "components/SelectorLeaderboard";
+import FilterSelect from "components/FilterSelect";
 import FlexibleInput from "components/FlexibleInput";
 import LeaderbordTable from "components/LeaderbordTable";
 
@@ -53,7 +53,7 @@ const LeaderboardForm = () => {
                   <div className="leaderboard__filter">
                     <Field
                       name="date"
-                      component={SelectorLeaderboard}
+                      component={FilterSelect}
                       options={dates}
                       placeholder="Date"
                     ></Field>
@@ -75,7 +75,7 @@ const LeaderboardForm = () => {
                   <div className="leaderboard__filter">
                     <Field
                       name="position"
-                      component={SelectorLeaderboard}
+                      component={FilterSelect}
                       options={positions}
                       placeholder="Position"
                     ></Field>
@@ -90,7 +90,7 @@ const LeaderboardForm = () => {
                   <div className="leaderboard__filter">
                     <Field
                       name="favorite"
-                      component={SelectorLeaderboard}
+                      component={FilterSelect}
                       options={favs}
                       placeholder="All"
                     ></Field>
@@ -134,7 +134,7 @@ const LeaderboardForm = () => {
                   <div className="leaderboard__filter">
                     <Field
                       name="type"
-                      component={SelectorLeaderboard}
+                      component={FilterSelect}
                       options={
                         form.getState().values.batPitch === "batting"
                           ? battingVelocity
