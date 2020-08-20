@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Login from "routes/Login";
-import Registration from "routes/Registration";
-import ForgotPassword from "routes/ForgotPassword";
-import Profile from "routes/Profile";
+import Login from "navigation/routes/Login";
+import Registration from "navigation/routes/Registration";
+import ForgotPassword from "navigation/routes/ForgotPassword";
+import Profile from "navigation/routes/Profile";
 import { useSelector } from "react-redux";
-import Leaderboard from "routes/Leaderboard";
-import Network from "routes/Network";
+import Leaderboard from "navigation/routes/Leaderboard";
+import Network from "navigation/routes/Network";
 import { validateToken } from "api";
 import { initUser } from "store/actions";
 
