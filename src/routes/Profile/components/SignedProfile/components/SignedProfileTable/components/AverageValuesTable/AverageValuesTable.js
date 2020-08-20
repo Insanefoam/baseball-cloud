@@ -2,9 +2,7 @@ import React from "react";
 import "./AverageValuesTable.css";
 import { Form, Field } from "react-final-form";
 
-const AvarageValuesTable = ({ data }) => {
-  console.log(data);
-
+const AverageValuesTable = ({ data }) => {
   const renderHead = (titles) => {
     return titles.map((title, index) => (
       <th scope="col" key={index}>
@@ -150,4 +148,4 @@ const AvarageValuesTable = ({ data }) => {
   );
 };
 
-export default AvarageValuesTable;
+export default AverageValuesTable;

@@ -3,7 +3,7 @@ import Header from "components/Header";
 import Footer from "components/Footer";
 import "./UnsignedProfile.css";
 import Navigation from "components/Navigation";
-import Arrow from "components/Arrow";
+import Arrow from "images/Arrow";
 import UploadAvatarForm from "components/UploadAvatarForm";
 import ProfileInfoForm from "components/ProfileInfoForm";
 
@@ -21,7 +21,7 @@ const UnsignedProfile = () => {
         <main className="profile__main">
           <div className="prhelp">
             <div className="prhelp__img">
-              <Arrow></Arrow>
+              <Arrow />
             </div>
             <div className="prhelp__title">Your Account</div>
             <div className="prhelp__content">

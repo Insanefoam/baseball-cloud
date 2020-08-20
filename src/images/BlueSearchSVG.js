@@ -1,6 +1,6 @@
 import React from "react";
 
-const BlueSearch = () => {
+const BlueSearchSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,4 +17,4 @@ const BlueSearch = () => {
   );
 };
 
-export default BlueSearch;
+export default BlueSearchSVG;

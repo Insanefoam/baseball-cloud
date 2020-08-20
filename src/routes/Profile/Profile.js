@@ -12,6 +12,7 @@ const Profile = () => {
   const path = location.pathname;
   const id = path.match(idRegex) ? path.match(idRegex)[0] : undefined;
   const [profileInfo, setProfileInfo] = useState({});
+
   useEffect(() => {
     getCurrentProfile().then((res) =>
       setProfileInfo(res.data.data.current_profile)

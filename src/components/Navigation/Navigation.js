@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 const Navigation = () => {
   const dispatch = useDispatch();
   const [isDropdown, setDropdown] = useState(false);
+
   return (
     <nav className="nav">
       <NavLink to="/leaderboard" className="nav__link">

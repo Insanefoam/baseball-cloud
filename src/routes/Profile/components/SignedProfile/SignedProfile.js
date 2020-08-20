@@ -9,8 +9,8 @@ import HeightSVG from "images/HeightSVG";
 import WeightSVG from "images/WeightSVG";
 import ThrowsSVG from "images/ThrowsSVG";
 import BatsSVG from "images/BatsSVG";
-import FavoriteHeart from "images/FavoriteHeart";
-import UnfavoriteHeart from "images/UnfavoriteHeart";
+import FavoriteHeartSVG from "images/FavoriteHeartSVG";
+import UnfavoriteHeartSVG from "images/UnfavoriteHeart";
 import SignedProfileTable from "./components/SignedProfileTable";
 
 const capitalize = (str) => {
@@ -22,7 +22,6 @@ const SignedProfile = ({ id }) => {
 
   useEffect(() => {
     getProfile(id).then((res) => {
-      console.log(res);
       setProfileInfo(res.data.data.profile);
     });
   }, [id]);
@@ -41,7 +40,11 @@ const SignedProfile = ({ id }) => {
           <div className="userinfo">
             <div className="userinfo__avatar">
               <button onClick={() => changeFavorite(id)}>
-                {profileInfo.favorite ? <FavoriteHeart /> : <UnfavoriteHeart />}
+                {profileInfo.favorite ? (
+                  <FavoriteHeartSVG />
+                ) : (
+                  <UnfavoriteHeartSVG />
+                )}
               </button>
               <div
                 style={

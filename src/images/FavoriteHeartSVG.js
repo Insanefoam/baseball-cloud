@@ -1,6 +1,6 @@
 import React from "react";
 
-const FavoriteHeart = () => {
+const FavoriteHeartSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,4 +17,4 @@ const FavoriteHeart = () => {
   );
 };
 
-export default FavoriteHeart;
+export default FavoriteHeartSVG;

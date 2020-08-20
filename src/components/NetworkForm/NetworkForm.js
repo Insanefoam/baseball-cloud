@@ -4,7 +4,7 @@ import { Form, Field } from "react-final-form";
 import SelectorLeaderboard from "components/SelectorLeaderboard";
 import FlexibleInput from "components/FlexibleInput";
 import NetworkTable from "components/NetworkTable";
-import BlueSearch from "images/BlueSearch";
+import BlueSearchSVG from "images/BlueSearchSVG.js";
 
 const visibleProfiles = [
   { value: 10, label: "10" },
@@ -96,7 +96,7 @@ const NetworkForm = () => {
                   <Field name="player_name" placeholder="Player Name">
                     {({ input, placeholder }) => (
                       <span className="network__input">
-                        <BlueSearch></BlueSearch>
+                        <BlueSearchSVG />
                         <input {...input} placeholder={placeholder}></input>
                       </span>
                     )}

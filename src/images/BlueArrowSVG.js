@@ -1,6 +1,6 @@
 import React from "react";
 
-const BlueArrow = () => {
+const BlueArrowSVG = () => {
   return (
     <svg
       height="20"
@@ -16,4 +16,4 @@ const BlueArrow = () => {
   );
 };
 
-export default BlueArrow;
+export default BlueArrowSVG;

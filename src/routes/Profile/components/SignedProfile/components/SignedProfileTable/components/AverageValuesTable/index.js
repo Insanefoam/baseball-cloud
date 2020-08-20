@@ -1,2 +1,2 @@
-import AvarageValuesTable from "./AvarageValuesTable";
-export default AvarageValuesTable;
+import AverageValuesTable from "./AverageValuesTable";
+export default AverageValuesTable;
