@@ -33,17 +33,17 @@ export const getTeams = () => api.post("/graphql", getTeamsQuery());
 
 export const getFacilities = () => api.post("/graphql", getFacilitiesQuery());
 
-export const getBattingLeaderboard = (config) =>
-  api.post("/graphql", getBattingLeaderboardQuery(config));
+export const getBattingLeaderboard = (params) =>
+  api.post("/graphql", getBattingLeaderboardQuery(params));
 
-export const getPithcingLeaderboard = (config) =>
-  api.post("/graphql", getPitchingLeaderboardQuery(config));
+export const getPithcingLeaderboard = (params) =>
+  api.post("/graphql", getPitchingLeaderboardQuery(params));
 
 export const updateFavorite = (id, value) =>
   api.post("/graphql", updateFavoriteQuery(id, value));
 
-export const getProfiles = (config) =>
-  api.post("/graphql", getProfilesQuery(config));
+export const getProfiles = (params) =>
+  api.post("/graphql", getProfilesQuery(params));
 
 export const getCurrentProfile = () =>
   api.post("/graphql", getCurrentProfileQuery());
@@ -56,5 +56,5 @@ export const getBattingSummary = (id) =>
 export const getPitchingSummary = (id) =>
   api.post("/graphql", getPitchingSummaryQuery(id));
 
-export const updateProfile = (config) =>
-  api.post("/graphql", updateProfileQuery(config));
+export const updateProfile = (params) =>
+  api.post("/graphql", updateProfileQuery(params));

@@ -42,7 +42,7 @@ const LeaderboardForm = () => {
     <div className="leadeboard__container">
       <Form
         onSubmit={() => alert("submit")}
-        initialValues={{ batPitch: "batting", type: "exit_velocity" }}
+        initialValues={{ playersType: "batting", type: "exit_velocity" }}
       >
         {({ form }) => {
           return (
@@ -98,7 +98,7 @@ const LeaderboardForm = () => {
                 </div>
               </div>
               <div className="leaderboard__title-down">
-                <Field name="batPitch" defaultValue="batting">
+                <Field name="playersType" defaultValue="batting">
                   {({ input }) => (
                     <div>
                       <button
@@ -136,12 +136,12 @@ const LeaderboardForm = () => {
                       name="type"
                       component={FilterSelect}
                       options={
-                        form.getState().values.batPitch === "batting"
+                        form.getState().values.playersType === "batting"
                           ? battingVelocity
                           : pitchingVelocity
                       }
                       placeholder={
-                        form.getState().values.batPitch === "batting"
+                        form.getState().values.playersType === "batting"
                           ? battingVelocity[0].label
                           : pitchingVelocity[0].label
                       }
@@ -149,7 +149,7 @@ const LeaderboardForm = () => {
                   </div>
                 </div>
               </div>
-              <LeaderbordTable config={form.getState().values} />
+              <LeaderbordTable filters={form.getState().values} />
             </div>
           );
         }}

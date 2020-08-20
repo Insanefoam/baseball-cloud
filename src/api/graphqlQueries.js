@@ -35,7 +35,7 @@ export const getFacilitiesQuery = () => ({
   variables: { search: "" },
 });
 
-export const getBattingLeaderboardQuery = (config) => ({
+export const getBattingLeaderboardQuery = (params) => ({
   query: `query LeaderboardBatting ($input: FilterLeaderboardInput!) {
   leaderboard_batting(input: $input) {
       leaderboard_batting {
@@ -57,10 +57,10 @@ export const getBattingLeaderboardQuery = (config) => ({
       }
   }
 }`,
-  variables: { input: { ...config, age: +config.age } },
+  variables: { input: { ...params, age: +params.age } },
 });
 
-export const getPitchingLeaderboardQuery = (config) => ({
+export const getPitchingLeaderboardQuery = (params) => ({
   query: `query LeaderboardPitching ($input: FilterLeaderboardInput!) {
   leaderboard_pitching(input: $input) {
       leaderboard_pitching {
@@ -84,7 +84,7 @@ export const getPitchingLeaderboardQuery = (config) => ({
       }
   }
 }`,
-  variables: { input: { ...config, age: +config.age } },
+  variables: { input: { ...params, age: +params.age } },
 });
 
 export const updateFavoriteQuery = (id, value) => ({
@@ -96,7 +96,7 @@ export const updateFavoriteQuery = (id, value) => ({
   variables: { form: { profile_id: id, favorite: value } },
 });
 
-export const getProfilesQuery = (config) => ({
+export const getProfilesQuery = (params) => ({
   query: `query Profiles ($input: FilterProfilesInput!) {
     profiles (input: $input) {
       profiles {
@@ -126,7 +126,7 @@ export const getProfilesQuery = (config) => ({
       total_count
       }
     }`,
-  variables: { input: { ...config, age: +config.age } },
+  variables: { input: { ...params, age: +params.age } },
 });
 
 export const getCurrentProfileQuery = () => ({
@@ -285,7 +285,7 @@ export const getPitchingSummaryQuery = (id) => ({
   variables: { id },
 });
 
-export const updateProfileQuery = (config) => ({
+export const updateProfileQuery = (params) => ({
   query: `mutation UpdateProfile ($form: UpdateProfileInput!) {
     update_profile (input: $form) {
       profile {
@@ -331,5 +331,5 @@ export const updateProfileQuery = (config) => ({
       }
     }
   }`,
-  variables: { config },
+  variables: { params },
 });

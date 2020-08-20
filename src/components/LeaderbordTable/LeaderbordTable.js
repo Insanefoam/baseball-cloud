@@ -34,8 +34,8 @@ const pitchingHead = [
   "Favorite",
 ];
 
-const LeaderbordTable = ({ config }) => {
-  const tableType = config.batPitch;
+const LeaderbordTable = ({ filters }) => {
+  const { playersType } = filters;
   const [data, setData] = useState([]);
 
   const makeFavorite = (id, value) => {
@@ -50,8 +50,8 @@ const LeaderbordTable = ({ config }) => {
     );
   };
 
-  const renderHead = (type) => {
-    if (type === "batting") {
+  const renderHead = (playersType) => {
+    if (playersType === "batting") {
       return battingHead.map((el, index) => (
         <th scope="col" key={index}>
           {el}
@@ -66,8 +66,8 @@ const LeaderbordTable = ({ config }) => {
     }
   };
 
-  const renderRows = (type, data) => {
-    if (type === "batting") {
+  const renderRows = (playersType, data) => {
+    if (playersType === "batting") {
       return data.map((el, index) => (
         <tr key={index}>
           <th scope="row">{index + 1}</th>
@@ -135,24 +135,29 @@ const LeaderbordTable = ({ config }) => {
   };
 
   useEffect(() => {
-    if (config.batPitch === "batting") {
-      getBattingLeaderboard({ ...config, batPitch: undefined }).then((res) => {
-        setData(res.data.data.leaderboard_batting.leaderboard_batting);
-      });
+    if (filters.playersType === "batting") {
+      getBattingLeaderboard({ ...filters, playersType: undefined }).then(
+        (res) => {
+          setData(res.data.data.leaderboard_batting.leaderboard_batting);
+        }
+      );
     } else {
-      getPithcingLeaderboard({ ...config, batPitch: undefined }).then((res) =>
+      getPithcingLeaderboard({
+        ...filters,
+        playersType: undefined,
+      }).then((res) =>
         setData(res.data.data.leaderboard_pitching.leaderboard_pitching)
       );
     }
-  }, [config]);
+  }, [filters]);
 
   return (
     <div>
       <table className="table table-borderless">
         <thead>
-          <tr>{renderHead(tableType)}</tr>
+          <tr>{renderHead(playersType)}</tr>
         </thead>
-        <tbody>{renderRows(tableType, data)}</tbody>
+        <tbody>{renderRows(playersType, data)}</tbody>
       </table>
     </div>
   );
