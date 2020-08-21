@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "components/Header";
 import Footer from "components/Footer";
-import "./AuthContainer.css";
+import "./AuthBox.css";
 
-const AuthContainer = ({ children }) => {
+const AuthBox = ({ children }) => {
   return (
     <div className="container">
       <Header />
@@ -13,4 +13,4 @@ const AuthContainer = ({ children }) => {
   );
 };
 
-export default AuthContainer;
+export default AuthBox;

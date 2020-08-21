@@ -1,12 +1,12 @@
 import React from "react";
-import AuthContainer from "components/AuthContainer";
+import AuthBox from "components/AuthBox";
 import RecoveryForm from "components/RecoveryForm/RecoveryForm";
 
 const ForgotPassword = () => {
   return (
-    <AuthContainer>
+    <AuthBox>
       <RecoveryForm />
-    </AuthContainer>
+    </AuthBox>
   );
 };
 

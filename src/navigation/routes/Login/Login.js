@@ -1,12 +1,12 @@
 import React from "react";
 import SignInForm from "components/SignInForm";
-import AuthContainer from "components/AuthContainer";
+import AuthBox from "components/AuthBox";
 
 const Login = () => {
   return (
-    <AuthContainer>
+    <AuthBox>
       <SignInForm />
-    </AuthContainer>
+    </AuthBox>
   );
 };
 

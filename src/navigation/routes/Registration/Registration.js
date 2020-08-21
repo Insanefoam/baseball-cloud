@@ -1,12 +1,12 @@
 import React from "react";
 import SignUpForm from "components/SignUpForm";
-import AuthContainer from "components/AuthContainer";
+import AuthBox from "components/AuthBox";
 
 const Registration = () => {
   return (
-    <AuthContainer>
+    <AuthBox>
       <SignUpForm />
-    </AuthContainer>
+    </AuthBox>
   );
 };
 
