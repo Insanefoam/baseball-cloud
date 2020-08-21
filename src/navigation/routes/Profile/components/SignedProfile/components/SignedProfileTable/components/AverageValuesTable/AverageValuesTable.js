@@ -1,5 +1,6 @@
 import React from "react";
 import "./AverageValuesTable.css";
+import PropTypes from "prop-types";
 import { Form, Field } from "react-final-form";
 
 const AverageValuesTable = ({ values }) => {
@@ -148,6 +149,10 @@ const AverageValuesTable = ({ values }) => {
       )}
     </Form>
   );
+};
+
+AverageValuesTable.propTypes = {
+  values: PropTypes.object,
 };
 
 export default AverageValuesTable;

@@ -5,6 +5,7 @@ import {
   getPithcingLeaderboard,
   updateFavorite,
 } from "api";
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
@@ -165,6 +166,10 @@ const LeaderbordTable = ({ filters }) => {
       </table>
     </div>
   );
+};
+
+LeaderbordTable.propTypes = {
+  filters: PropTypes.object,
 };
 
 export default LeaderbordTable;

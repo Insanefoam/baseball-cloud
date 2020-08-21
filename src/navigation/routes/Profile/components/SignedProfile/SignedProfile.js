@@ -9,6 +9,7 @@ import HeightSVG from "images/HeightSVG";
 import WeightSVG from "images/WeightSVG";
 import ThrowsSVG from "images/ThrowsSVG";
 import BatsSVG from "images/BatsSVG";
+import PropTypes from "prop-types";
 import FavoriteHeartSVG from "images/FavoriteHeartSVG";
 import UnfavoriteHeartSVG from "images/UnfavoriteHeart";
 import SignedProfileTable from "./components/SignedProfileTable";
@@ -141,6 +142,10 @@ const SignedProfile = ({ id }) => {
       <Footer />
     </div>
   );
+};
+
+SignedProfile.propTypes = {
+  id: PropTypes.string,
 };
 
 export default SignedProfile;

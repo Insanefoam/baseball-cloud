@@ -1,5 +1,6 @@
 import React from "react";
 import "./InputAuth.css";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const InputAuth = ({ input, placeholder, icon }) => {
@@ -17,6 +18,12 @@ const InputAuth = ({ input, placeholder, icon }) => {
       />
     </div>
   );
+};
+
+InputAuth.propTypes = {
+  input: PropTypes.object,
+  placeholder: PropTypes.string,
+  icon: PropTypes.object,
 };
 
 export default InputAuth;

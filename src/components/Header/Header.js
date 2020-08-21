@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "images/Logo";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
+import PropTypes from "prop-types";
 
 const Header = ({ navigation: Navigation }) => {
   return (
@@ -14,6 +15,10 @@ const Header = ({ navigation: Navigation }) => {
       {Navigation && <Navigation />}
     </header>
   );
+};
+
+Header.propTypes = {
+  navigation: PropTypes.func,
 };
 
 export default Header;

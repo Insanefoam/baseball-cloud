@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./SignedProfileTable.css";
+import PropTypes from "prop-types";
 import { getBattingSummary, getPitchingSummary } from "api";
 import { maxTopValuesBatter, maxTopValuesPitcher } from "services/utils";
 import TopValuesTable from "./components/TopValuesTable";
@@ -42,6 +43,10 @@ const SignedProfileTable = ({ info }) => {
       />
     </div>
   );
+};
+
+SignedProfileTable.propTypes = {
+  info: PropTypes.object,
 };
 
 export default SignedProfileTable;

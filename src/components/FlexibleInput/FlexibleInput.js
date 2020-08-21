@@ -1,5 +1,6 @@
 import React from "react";
 import "./FlexibleInput.css";
+import PropTypes from "prop-types";
 import BlueArrowSVG from "images/BlueArrowSVG.js";
 
 const FlexibleInput = ({ input, placeholder }) => {
@@ -11,6 +12,11 @@ const FlexibleInput = ({ input, placeholder }) => {
       </label>
     </span>
   );
+};
+
+FlexibleInput.propTypes = {
+  input: PropTypes.object,
+  placeholder: PropTypes.string,
 };
 
 export default FlexibleInput;

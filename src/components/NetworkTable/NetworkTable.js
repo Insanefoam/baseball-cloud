@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { updateFavorite, getProfiles } from "api";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -127,6 +128,11 @@ const NetworkTable = ({ filters, changeCount }) => {
         : undefined}
     </div>
   );
+};
+
+NetworkTable.propTypes = {
+  filters: PropTypes.object,
+  changeCount: PropTypes.func,
 };
 
 export default NetworkTable;

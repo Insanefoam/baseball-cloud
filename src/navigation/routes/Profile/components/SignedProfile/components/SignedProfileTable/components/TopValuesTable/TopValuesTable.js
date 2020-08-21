@@ -1,6 +1,7 @@
 import React from "react";
 import { Line } from "rc-progress";
 import "./TopValuesTable.css";
+import PropTypes from "prop-types";
 
 const TopValuesTable = ({ values, type }) => {
   return (
@@ -75,6 +76,11 @@ const TopValuesTable = ({ values, type }) => {
       </div>
     </div>
   );
+};
+
+TopValuesTable.propTypes = {
+  values: PropTypes.object,
+  type: PropTypes.string,
 };
 
 export default TopValuesTable;

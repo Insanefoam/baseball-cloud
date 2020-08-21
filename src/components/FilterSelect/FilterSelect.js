@@ -1,6 +1,7 @@
 import React from "react";
 import Select from "react-select";
 import styles from "./styles";
+import PropTypes from "prop-types";
 
 const FilterSelect = ({ options, placeholder, input }) => {
   return (
@@ -13,6 +14,12 @@ const FilterSelect = ({ options, placeholder, input }) => {
       onChange={({ value }) => input.onChange(value)}
     />
   );
+};
+
+FilterSelect.propTypes = {
+  options: PropTypes.array,
+  placeholder: PropTypes.string,
+  input: PropTypes.object,
 };
 
 export default FilterSelect;
